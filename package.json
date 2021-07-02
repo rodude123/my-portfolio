@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "gulp-htmlmin": "^5.0.1",
-    "require": "^2.4.20"
+    "normalize.css": "^8.0.1",
+    "require": "^0.4.4"
   }
 }

@@ -9,14 +9,14 @@ gulp.task("minifyHTML", () =>
 	return gulp.src("src/*.html" )
 		.pipe(htmlMin({collapseWhitespace: true}))
 		.pipe(gulp.dest("dist"));
-})
+});
 
 gulp.task("minifyCSS", () =>
 {
 	return gulp.src("src/css/*.css")
 		.pipe(cssMin({compatibility: "ie8"}))
 		.pipe(gulp.dest("dist/css"));
-})
+});
 
 gulp.task("minifyJS", () =>
 {
@@ -32,7 +32,7 @@ gulp.task("minifyJS", () =>
 	.on("error", createErrorHandler("uglify"))
 	.pipe(gulp.dest("dist/js"))
 	.on("error", createErrorHandler("gulp.dest"));
-})
+});
 
 gulp.task("browserSync", () =>
 {
@@ -40,11 +40,12 @@ gulp.task("browserSync", () =>
 		server: {
 			baseDir: "dist"
 		}
-	})
+	});
+	
 	gulp.watch("src/*.html", gulp.task("minifyHTML"));
-	gulp.watch("src/css/*.css", gulp.task("minifyCSS"))
-	gulp.watch("src/js/*.js", gulp.task("minifyJS"))
-	gulp.watch("dist/*", browserSync.reload)
+	gulp.watch("src/css/*.css", gulp.task("minifyCSS"));
+	gulp.watch("src/js/*.js", gulp.task("minifyJS"));
+	gulp.watch("dist").on("change", browserSync.reload)
 });
 
-gulp.task("default", gulp.series("browserSync"))
+gulp.task("default", gulp.series("browserSync"));
