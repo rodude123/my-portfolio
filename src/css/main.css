@@ -1,3 +1,42 @@
+/******** Imports ********/
 @import "/node_modules/normalize.css/normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech+Mono&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
+/****** Root Style ******/
+:root{
+    /* colours */
+    --primaryDefault: hsla(79, 62%, 51%, 1);
+    --primaryHover: hsla(79, 75%, 41%, 1);
+    --errorDefault: hsla(0, 62%, 51%, 1);
+    --grey: hsla(0, 0%, 39%, 1);
 
+    /* font sizes */
+    --titleFS: 2.25rem;
+    --generalFS: 1.125rem;
+    --headingFS: 1.5rem;
+}
+
+h1{
+    font-family: Share Tech Mono, monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.25rem;
+    line-height: 2.5625rem;
+    text-transform: lowercase;
+}
+
+h2{
+    font-family: Noto Sans KR, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2.1875rem;
+}
+
+body{
+    font-family: Noto Sans KR, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.625rem;
+}
