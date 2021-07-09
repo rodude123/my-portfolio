@@ -9,6 +9,7 @@
     --primaryHover: hsla(79, 75%, 41%, 1);
     --errorDefault: hsla(0, 62%, 51%, 1);
     --grey: hsla(0, 0%, 39%, 1);
+    --mutedGrey: hsla(0, 0%, 67%, 0.58);
 
     /* font sizes */
     --titleFS: 2.25rem;
@@ -16,7 +17,13 @@
     --headingFS: 1.5rem;
 }
 
-h1{
+/*** Standard Styles ****/
+
+a:visited{
+    color: inherit;
+}
+
+h1, nav{
     font-family: Share Tech Mono, monospace;
     font-style: normal;
     font-weight: normal;
@@ -33,6 +40,44 @@ h2{
     line-height: 2.1875rem;
 }
 
+a.btn, form input[type="submit"]{
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+}
+a.btnPrimary{
+    background: var(--primaryDefault);
+    color: #FFFFFF;
+    border: 5px solid var(--primaryDefault)
+}
+
+a.btnOutline{
+    background: #FFFFFF;
+    color: var(--primaryDefault);
+    border: 5px solid var(--primaryDefault)
+}
+
+form input[type="submit"]{
+    border: none;
+    cursor: pointer;
+}
+
+a.btnPrimary:hover, form input[type="submit"]:hover{
+    background: var(--primaryHover);
+    box-shadow: 0 6px 4px 0 hsla(0, 0%, 0%, 0.25);
+    border: 5px solid var(--primaryHover);
+}
+
+a.btnOutline:hover{
+    box-shadow: 0 6px 4px 0 hsla(0, 0%, 0%, 0.25);
+    border: 5px solid var(--primaryHover);
+}
+
+a.btn:active, form input[type="submit"]:active{
+
+}
+
 body{
     font-family: Noto Sans KR, sans-serif;
     font-style: normal;
@@ -40,3 +85,80 @@ body{
     font-size: 18px;
     line-height: 1.625rem;
 }
+
+header{
+    background: url("../imgs/hero.jpg") bottom left;
+    background-position-y: 700px;
+    background-size: cover;
+    height: 40%;
+    color:  #FFFFFF;
+    backdrop-filter: grayscale(100%);
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.25em;
+}
+
+nav h1 {
+    margin: 0;
+}
+
+nav a{
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin: 0;
+    justify-content: right;
+    align-items: flex-end;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li:hover a::before, nav ul li a.active{
+    content: '<';
+}
+
+nav ul li:hover a::after, nav ul li a.active{
+    content: '>';
+}
+
+header div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10em;
+}
+
+header div .btn {
+    margin: 2em 0;
+}
+
+header div button{
+    background: none;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+i.fa-chevron-down{
+    color: var(--mutedGrey);
+    font-size: 3.75em;
+    margin: 1.5rem 0;
+}
+
+
+
+
