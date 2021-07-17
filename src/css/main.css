@@ -46,21 +46,17 @@ a.btn, form input[type="submit"]{
     padding: 1rem 2rem;
     border-radius: 10px;
 }
-a.btnPrimary{
+a.btnPrimary, form input[type="submit"]{
     background: var(--primaryDefault);
     color: #FFFFFF;
-    border: 5px solid var(--primaryDefault)
+    border: 5px solid var(--primaryDefault);
+    cursor: pointer;
 }
 
 a.btnOutline{
     background: #FFFFFF;
     color: var(--primaryDefault);
     border: 5px solid var(--primaryDefault)
-}
-
-form input[type="submit"]{
-    border: none;
-    cursor: pointer;
 }
 
 a.btnPrimary:hover, form input[type="submit"]:hover{
@@ -75,7 +71,8 @@ a.btnOutline:hover{
 }
 
 a.btn:active, form input[type="submit"]:active{
-
+    box-shadow: inset 0 6px 4px 0 hsla(0, 0%, 0%, 0.25);
+    padding: 0.8rem 1.8rem;
 }
 
 body{
@@ -158,7 +155,3 @@ i.fa-chevron-down{
     font-size: 3.75em;
     margin: 1.5rem 0;
 }
-
-
-
-
