@@ -17,7 +17,7 @@
     --headingFS: 1.5rem;
 }
 
-/*** Standard Styles ****/
+/*** Template Styles ****/
 
 a:visited{
     color: inherit;
@@ -44,52 +44,63 @@ a.btn, form input[type="submit"]{
     text-decoration: none;
     display: inline-block;
     padding: 1rem 2rem;
-    border-radius: 10px;
+    border-radius: 0.625em;
+    border: 0.3215em solid var(--primaryDefault);
+    color: #FFFFFF;
 }
+
+a.btn:hover{
+    border: 0.3215em solid var(--primaryHover);
+}
+
 a.btnPrimary, form input[type="submit"]{
     background: var(--primaryDefault);
-    color: #FFFFFF;
-    border: 5px solid var(--primaryDefault);
     cursor: pointer;
 }
 
 a.btnOutline{
     background: #FFFFFF;
     color: var(--primaryDefault);
-    border: 5px solid var(--primaryDefault)
 }
 
 a.btnPrimary:hover, form input[type="submit"]:hover{
     background: var(--primaryHover);
-    box-shadow: 0 6px 4px 0 hsla(0, 0%, 0%, 0.25);
-    border: 5px solid var(--primaryHover);
-}
 
-a.btnOutline:hover{
-    box-shadow: 0 6px 4px 0 hsla(0, 0%, 0%, 0.25);
-    border: 5px solid var(--primaryHover);
 }
 
 a.btn:active, form input[type="submit"]:active{
-    box-shadow: inset 0 6px 4px 0 hsla(0, 0%, 0%, 0.25);
     padding: 0.8rem 1.8rem;
 }
+
+.boxShadowOut:hover{
+    box-shadow: 0 6px 4px 0 hsla(0, 0%, 0%, 0.25);
+}
+
+.boxShadowIn:active{
+    box-shadow: inset 0 6px 4px 0 hsla(0, 0%, 0%, 0.25);
+}
+
+.textShadow:hover{
+    text-shadow: 0 6px 4px hsla(0, 0%, 0%, 0.25);
+}
+
+/*** Standard Styles ****/
 
 body{
     font-family: Noto Sans KR, sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 1.625rem;
 }
 
 header{
-    background: url("../imgs/hero.jpg") bottom left;
-    background-position-y: 700px;
+    background: url("../imgs/hero.jpg") no-repeat bottom;
     background-size: cover;
     height: 40%;
     color:  #FFFFFF;
     backdrop-filter: grayscale(100%);
+    position: relative;
 }
 
 nav{
@@ -105,6 +116,7 @@ nav h1 {
 
 nav a{
     text-decoration: none;
+    color: #FFFFFF;
 }
 
 nav ul {
@@ -120,12 +132,12 @@ nav ul li {
     list-style: none;
 }
 
-nav ul li:hover a::before, nav ul li a.active{
-    content: '<';
+nav ul li span{
+    visibility: hidden;
 }
 
-nav ul li:hover a::after, nav ul li a.active{
-    content: '>';
+nav ul li a:hover > span{
+    visibility: visible;
 }
 
 header div{
@@ -154,4 +166,19 @@ i.fa-chevron-down{
     color: var(--mutedGrey);
     font-size: 3.75em;
     margin: 1.5rem 0;
+}
+
+
+@media screen and (max-width: 75em) {
+    nav{
+        flex-direction: column;
+        justify-content: left;
+        align-items: end;
+        gap: 1em;
+    }
+
+    nav ul{
+        flex-direction: column;
+        padding: 0;
+    }
 }
