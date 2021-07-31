@@ -1,4 +1,377 @@
-body{
+/******** Imports ********/
+@import "/node_modules/normalize.css/normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech+Mono&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+/****** Root Style ******/
+:root {
+    /* colours */
+    --primaryDefault: hsla(79, 62%, 51%, 1);
+    --primaryHover: hsla(79, 75%, 41%, 1);
+    --errorDefault: hsla(0, 62%, 51%, 1);
+    --grey: hsla(0, 0%, 39%, 1);
+    --mutedGrey: hsla(0, 0%, 67%, 0.58);
+    --mutedBlack: hsla(0, 0%, 0%, 0.25);
+    --navBack: hsl(0, 0%, 30%);
+
+    /* font sizes */
+    --titleFS: 2.25rem;
+    --generalFS: 1.125rem;
+    --headingFS: 1.5rem;
+}
+
+/*** Template Styles ****/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Noto Sans KR, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+}
+
+a:visited {
+    color: inherit;
+}
+
+h1, nav {
+    font-family: Share Tech Mono, monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.25rem;
+    line-height: 2.5625rem;
+    text-transform: lowercase;
+}
+
+h2 {
+    font-family: Noto Sans KR, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2.1875rem;
+}
+
+a.btn, form input[type="submit"] {
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 0.625em;
+    border: 0.3215em solid var(--primaryDefault);
+    color: #FFFFFF;
+}
+
+a.btn:hover {
+    border: 0.3215em solid var(--primaryHover);
+}
+
+a.btnPrimary, form input[type="submit"] {
+    background: var(--primaryDefault);
+    cursor: pointer;
+}
+
+a.btnOutline {
+    background: #FFFFFF;
+    color: var(--primaryDefault);
+}
+
+a.btnPrimary:hover, form input[type="submit"]:hover {
+    background: var(--primaryHover);
+
+}
+
+a.btn:active, form input[type="submit"]:active {
+    padding: 0.8rem 1.8rem;
+}
+
+.boxShadowOut:hover {
+    box-shadow: 0 6px 4px 0 var(--mutedBlack);
+}
+
+.boxShadowIn:active {
+    box-shadow: inset 0 6px 4px 0 var(--mutedBlack);
+}
+
+.textShadow:hover {
+    text-shadow: 0 6px 4px var(--mutedBlack);
+}
+
+/*** Navigation Styles **/
+
+header {
+    background: #6A6A6A url("../imgs/hero.jpg") no-repeat bottom;
+    background-size: cover;
+    height: 40%;
+    color:  #FFFFFF;
+    backdrop-filter: grayscale(100%);
+    position: relative;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.25em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: background-color 0.4s ease-in;
+}
+
+nav.scrolled {
+    background-color: var(--navBack);
+}
+
+nav #nav-check {
+    display: none;
+}
+
+nav .nav-btn {
+    display: none;
+}
+
+nav h1 {
     margin: 0;
-    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin: 0;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li span {
+    visibility: hidden;
+}
+
+nav ul li a:hover span, nav ul li .active span {
+    visibility: visible;
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10em;
+}
+
+header div .btn {
+    margin: 2em 0;
+}
+
+header div button {
+    background: none;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+i.fa-chevron-down {
+    color: var(--mutedGrey);
+    font-size: 3.75em;
+    margin: 1.5rem 0;
+}
+
+div h1 span {
+    visibility: visible;
+    animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+    50% {
+        visibility: hidden;
+    }
+}
+
+/**** Media Queries *****/
+
+@media screen and (max-width: 75em) {
+    /*** Navigation styles **/
+
+    nav {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: var(--navBack);
+        position: fixed;
+        top: 0;
+        padding: 0;
+    }
+
+    nav a h1{
+        margin-left: 1ch;
+    }
+
+    nav  .nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 75px;
+        top: -360px;
+    }
+
+    nav ul {
+        position: fixed;
+        display: block;
+        width: 100%;
+        background-color: #333;
+        transition: all 0.4s ease-in;
+        overflow-y: hidden;
+        padding-left: 0;
+        margin-top: 7px;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        transform: translateX(-30px);
+        transition: all 0.4s ease-in;
+        opacity: 0;
+    }
+
+    .nav-btn label {
+        display: inline-block;
+        cursor: pointer;
+        width: 60px;
+        height: 50px;
+        position: fixed;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .5s ease-in;
+        -moz-transition: .5s ease-in;
+        -o-transition: .5s ease-in;
+        transition: .5s ease-in;
+    }
+
+    .nav-btn label span {
+        display: block;
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background-color: #FFFFFF;
+        opacity: 1;
+        right: 0;
+        top: 20px;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in;
+        -moz-transition: .25s ease-in;
+        -o-transition: .25s ease-in;
+        transition: .25s ease-in;
+    }
+
+    /** burger not clicked **/
+
+    nav  #nav-check:not(:checked) ~ ul{
+        height: auto;
+        max-height: 0;
+    }
+
+    nav #nav-check:not(:checked) ~ .nav-btn label span:nth-child(1) {
+        top: 8px;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+
+    nav #nav-check:not(:checked) ~ .nav-btn label span:nth-child(2) {
+        top: 23px;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+
+    nav #nav-check:not(:checked) ~ .nav-btn label span:nth-child(3) {
+        top: 38px;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+
+    nav .nav-btn label:hover, nav  #nav-check:checked ~ .nav-btn  label {
+        background-color: rgba(-1, 0, 0, 0.3);
+    }
+
+    /**** burger clicked ****/
+
+    nav #nav-check:checked ~ ul{
+        max-height: 50vh;
+        overflow-y: hidden;
+    }
+
+    nav #nav-check:checked ~ ul li a {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(1) a {
+        transition-delay: 0.15s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(2) a {
+        transition-delay: 0.25s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(3) a {
+        transition-delay: 0.35s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(4) a {
+        transition-delay: 0.45s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(5) a {
+        transition-delay: 0.55s;
+    }
+
+    nav #nav-check:checked ~ .nav-btn label span:first-child {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    nav #nav-check:checked ~ .nav-btn label span:nth-child(2){
+        width: 0;
+        opacity: 0;
+    }
+
+    nav #nav-check:checked ~ .nav-btn label span:last-child {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+}
+
+@media screen and (max-width: 31em) {
+    /** not to squish name **/
+
+    header div h1{
+        width: min-content;
+    }
 }
