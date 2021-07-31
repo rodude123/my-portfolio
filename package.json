@@ -11,14 +11,13 @@
   ],
   "author": "Rohit Pai",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "^2.26.14",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
-    "gulp-uglify": "^3.0.2"
-  },
-  "dependencies": {
+    "gulp-uglify": "^3.0.2",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-terser": "^2.0.1",
     "normalize.css": "^8.0.1",
     "require": "^0.4.4"
   }

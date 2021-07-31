@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const browserSync = require("browser-sync").create();
 const htmlMin = require("gulp-htmlmin");
 const cssMin = require("gulp-clean-css")
-const jsMin = require("gulp-uglify");
+const terser = require("gulp-terser");
 
 gulp.task("minifyHTML", () =>
 {
@@ -28,8 +28,8 @@ gulp.task("minifyJS", () =>
 	
 	return gulp.src("src/js/*.js")
 	.on("error", createErrorHandler("gulp.src"))
-	.pipe(jsMin())
-	.on("error", createErrorHandler("uglify"))
+	.pipe(terser())
+	.on("error", createErrorHandler("terser"))
 	.pipe(gulp.dest("dist/js"))
 	.on("error", createErrorHandler("gulp.dest"));
 });
