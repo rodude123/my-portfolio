@@ -25,6 +25,14 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: Noto Sans KR, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+}
+
 a:visited {
     color: inherit;
 }
@@ -90,15 +98,7 @@ a.btn:active, form input[type="submit"]:active {
     text-shadow: 0 6px 4px var(--mutedBlack);
 }
 
-/*** Standard Styles ****/
-
-body {
-    font-family: Noto Sans KR, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.125rem;
-    line-height: 1.625rem;
-}
+/*** Navigation Styles **/
 
 header {
     background: #6A6A6A url("../imgs/hero.jpg") no-repeat bottom;
@@ -201,7 +201,11 @@ div h1 span {
     }
 }
 
+/**** Media Queries *****/
+
 @media screen and (max-width: 75em) {
+    /*** Navigation styles **/
+
     nav {
         display: block;
         height: 50px;
@@ -277,6 +281,8 @@ div h1 span {
         transition: .25s ease-in;
     }
 
+    /** burger not clicked **/
+
     nav  #nav-check:not(:checked) ~ ul{
         height: auto;
         max-height: 0;
@@ -306,9 +312,11 @@ div h1 span {
         transform-origin: left center;
     }
 
-    nav .nav-btn  label:hover, nav  #nav-check:checked ~ .nav-btn  label {
+    nav .nav-btn label:hover, nav  #nav-check:checked ~ .nav-btn  label {
         background-color: rgba(-1, 0, 0, 0.3);
     }
+
+    /**** burger clicked ****/
 
     nav #nav-check:checked ~ ul{
         max-height: 50vh;
@@ -361,6 +369,8 @@ div h1 span {
 }
 
 @media screen and (max-width: 31em) {
+    /** not to squish name **/
+
     header div h1{
         width: min-content;
     }
