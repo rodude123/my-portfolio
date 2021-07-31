@@ -190,6 +190,17 @@ i.fa-chevron-down {
     margin: 1.5rem 0;
 }
 
+div h1 span {
+    visibility: visible;
+    animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+    50% {
+        visibility: hidden;
+    }
+}
+
 @media screen and (max-width: 75em) {
     nav {
         display: block;
