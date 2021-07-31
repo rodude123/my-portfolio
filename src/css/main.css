@@ -3,13 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech+Mono&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
 /****** Root Style ******/
-:root{
+:root {
     /* colours */
     --primaryDefault: hsla(79, 62%, 51%, 1);
     --primaryHover: hsla(79, 75%, 41%, 1);
     --errorDefault: hsla(0, 62%, 51%, 1);
     --grey: hsla(0, 0%, 39%, 1);
     --mutedGrey: hsla(0, 0%, 67%, 0.58);
+    --mutedBlack: hsla(0, 0%, 0%, 0.25);
 
     /* font sizes */
     --titleFS: 2.25rem;
@@ -19,11 +20,11 @@
 
 /*** Template Styles ****/
 
-a:visited{
+a:visited {
     color: inherit;
 }
 
-h1, nav{
+h1, nav {
     font-family: Share Tech Mono, monospace;
     font-style: normal;
     font-weight: normal;
@@ -32,7 +33,7 @@ h1, nav{
     text-transform: lowercase;
 }
 
-h2{
+h2 {
     font-family: Noto Sans KR, sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -40,7 +41,7 @@ h2{
     line-height: 2.1875rem;
 }
 
-a.btn, form input[type="submit"]{
+a.btn, form input[type="submit"] {
     text-decoration: none;
     display: inline-block;
     padding: 1rem 2rem;
@@ -49,44 +50,44 @@ a.btn, form input[type="submit"]{
     color: #FFFFFF;
 }
 
-a.btn:hover{
+a.btn:hover {
     border: 0.3215em solid var(--primaryHover);
 }
 
-a.btnPrimary, form input[type="submit"]{
+a.btnPrimary, form input[type="submit"] {
     background: var(--primaryDefault);
     cursor: pointer;
 }
 
-a.btnOutline{
+a.btnOutline {
     background: #FFFFFF;
     color: var(--primaryDefault);
 }
 
-a.btnPrimary:hover, form input[type="submit"]:hover{
+a.btnPrimary:hover, form input[type="submit"]:hover {
     background: var(--primaryHover);
 
 }
 
-a.btn:active, form input[type="submit"]:active{
+a.btn:active, form input[type="submit"]:active {
     padding: 0.8rem 1.8rem;
 }
 
-.boxShadowOut:hover{
-    box-shadow: 0 6px 4px 0 hsla(0, 0%, 0%, 0.25);
+.boxShadowOut:hover {
+    box-shadow: 0 6px 4px 0 var(--mutedBlack);
 }
 
-.boxShadowIn:active{
-    box-shadow: inset 0 6px 4px 0 hsla(0, 0%, 0%, 0.25);
+.boxShadowIn:active {
+    box-shadow: inset 0 6px 4px 0 var(--mutedBlack);
 }
 
-.textShadow:hover{
-    text-shadow: 0 6px 4px hsla(0, 0%, 0%, 0.25);
+.textShadow:hover {
+    text-shadow: 0 6px 4px var(--mutedBlack);
 }
 
 /*** Standard Styles ****/
 
-body{
+body {
     font-family: Noto Sans KR, sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -94,8 +95,8 @@ body{
     line-height: 1.625rem;
 }
 
-header{
-    background: url("../imgs/hero.jpg") no-repeat bottom;
+header {
+    background: #6A6A6A url("../imgs/hero.jpg") no-repeat bottom;
     background-size: cover;
     height: 40%;
     color:  #FFFFFF;
@@ -103,18 +104,28 @@ header{
     position: relative;
 }
 
-nav{
+nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0.25em;
+    position: sticky;
+    top: 0;
+}
+
+nav #nav-check {
+    display: none;
+}
+
+nav .nav-btn {
+    display: none;
 }
 
 nav h1 {
     margin: 0;
 }
 
-nav a{
+nav a {
     text-decoration: none;
     color: #FFFFFF;
 }
@@ -124,7 +135,7 @@ nav ul {
     flex-direction: row;
     gap: 1em;
     margin: 0;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: flex-end;
 }
 
@@ -132,15 +143,15 @@ nav ul li {
     list-style: none;
 }
 
-nav ul li span{
+nav ul li span {
     visibility: hidden;
 }
 
-nav ul li a:hover > span{
+nav ul li a:hover span {
     visibility: visible;
 }
 
-header div{
+header div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -152,7 +163,7 @@ header div .btn {
     margin: 2em 0;
 }
 
-header div button{
+header div button {
     background: none;
     border: none;
     display: inline-block;
@@ -162,23 +173,174 @@ header div button{
     cursor: pointer;
 }
 
-i.fa-chevron-down{
+i.fa-chevron-down {
     color: var(--mutedGrey);
     font-size: 3.75em;
     margin: 1.5rem 0;
 }
 
-
 @media screen and (max-width: 75em) {
-    nav{
-        flex-direction: column;
-        justify-content: left;
-        align-items: end;
-        gap: 1em;
+    nav {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: #4d4d4d;
+        position: relative;
+        padding: 0;
     }
 
-    nav ul{
-        flex-direction: column;
-        padding: 0;
+    nav a h1{
+        margin-left: 1ch;
+    }
+
+    nav  .nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 30px;
+        top: -353px;
+    }
+
+    nav ul {
+        position: relative;
+        display: block;
+        width: 100%;
+        background-color: #333;
+        transition: all 0.4s ease-in;
+        overflow-y: hidden;
+        padding-left: 0;
+        margin-top: 7px;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        transform: translateX(-30px);
+        transition: all 0.4s ease-in;
+        opacity: 0;
+    }
+
+    .nav-btn label {
+        display: inline-block;
+        padding: 13px 0;
+        margin: 0;
+        cursor: pointer;
+        width: 60px;
+        height: 20px;
+        position: relative;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .5s ease-in;
+        -moz-transition: .5s ease-in;
+        -o-transition: .5s ease-in;
+        transition: .5s ease-in;
+    }
+
+    .nav-btn label span {
+        display: block;
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background-color: #FFFFFF;
+        opacity: 1;
+        right: 0;
+        top: 20px;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in;
+        -moz-transition: .25s ease-in;
+        -o-transition: .25s ease-in;
+        transition: .25s ease-in;
+    }
+
+    nav  #nav-check:not(:checked) ~ ul{
+        height: auto;
+        max-height: 0;
+    }
+
+    nav #nav-check:not(:checked) ~ .nav-btn label span:nth-child(1) {
+        top: 0;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+
+    nav #nav-check:not(:checked) ~ .nav-btn label span:nth-child(2) {
+        top: 15px;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+
+    nav #nav-check:not(:checked) ~ .nav-btn label span:nth-child(3) {
+        top: 30px;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+
+    nav .nav-btn  label:hover, nav  #nav-check:checked ~ .nav-btn  label {
+        background-color: rgba(-1, 0, 0, 0.3);
+    }
+
+    nav #nav-check:checked ~ ul{
+        max-height: 50vh;
+        overflow-y: hidden;
+    }
+
+    nav #nav-check:checked ~ ul li a {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(1) a {
+        transition-delay: 0.15s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(2) a {
+        transition-delay: 0.25s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(3) a {
+        transition-delay: 0.35s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(4) a {
+        transition-delay: 0.45s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(5) a {
+        transition-delay: 0.55s;
+    }
+
+    nav #nav-check:checked ~ .nav-btn label span:first-child {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    nav #nav-check:checked ~ .nav-btn label span:nth-child(2){
+        width: 0;
+        opacity: 0;
+    }
+
+    nav #nav-check:checked ~ .nav-btn label span:last-child {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+}
+
+@media screen and (max-width: 31em) {
+    header div h1{
+        width: min-content;
     }
 }
