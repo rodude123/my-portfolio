@@ -1,10 +1,10 @@
-/******** Imports ********/
+/******** Imports *******/
 @import "/node_modules/normalize.css/normalize.css";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech+Mono&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech+Mono&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
 
 /****** Root Style ******/
 :root {
-    /* colours */
+    /* Colours */
     --primaryDefault: hsla(79, 62%, 51%, 1);
     --primaryHover: hsla(79, 75%, 41%, 1);
     --errorDefault: hsla(0, 62%, 51%, 1);
@@ -13,7 +13,7 @@
     --mutedBlack: hsla(0, 0%, 0%, 0.25);
     --navBack: hsl(0, 0%, 30%);
 
-    /* font sizes */
+    /* Font Sizes */
     --titleFS: 2.25rem;
     --generalFS: 1.125rem;
     --headingFS: 1.5rem;
@@ -29,7 +29,7 @@ body {
     font-family: Noto Sans KR, sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 1.125rem;
+    font-size: var(--generalFS);
     line-height: 1.625rem;
 }
 
@@ -41,7 +41,7 @@ h1, nav {
     font-family: Share Tech Mono, monospace;
     font-style: normal;
     font-weight: normal;
-    font-size: 2.25rem;
+    font-size: var(--titleFS);
     line-height: 2.5625rem;
     text-transform: lowercase;
 }
@@ -50,7 +50,7 @@ h2 {
     font-family: Noto Sans KR, sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: var(--headingFS);
     line-height: 2.1875rem;
 }
 
@@ -201,10 +201,21 @@ div h1 span {
     }
 }
 
+/***** About Styles *****/
+
+section#about {
+    padding: 0 5em;
+}
+
+section#about div {
+    padding: 0.1em 5em;
+}
+
 /**** Media Queries *****/
 
 @media screen and (max-width: 75em) {
-    /*** Navigation styles **/
+
+    /*** Navigation Styles **/
 
     nav {
         display: block;
@@ -281,7 +292,7 @@ div h1 span {
         transition: .25s ease-in;
     }
 
-    /** burger not clicked **/
+    /** Burger Not Clicked **/
 
     nav  #nav-check:not(:checked) ~ ul{
         height: auto;
@@ -316,7 +327,7 @@ div h1 span {
         background-color: rgba(-1, 0, 0, 0.3);
     }
 
-    /**** burger clicked ****/
+    /**** Burger Clicked ****/
 
     nav #nav-check:checked ~ ul{
         max-height: 50vh;
@@ -366,12 +377,33 @@ div h1 span {
         -o-transform: rotate(-45deg);
         transform: rotate(-45deg);
     }
+
+    /***** About Styles *****/
+
+    section#about {
+        padding: 0 1em;
+    }
+
+    section#about div {
+        padding: 0.1em 2.5em;
+    }
 }
 
 @media screen and (max-width: 31em) {
-    /** not to squish name **/
+    /*** Navigation Styles **/
 
-    header div h1{
+    header div h1 {
         width: min-content;
     }
+
+    /***** About Styles *****/
+
+    section#about {
+        padding: 0 0.5em;
+    }
+
+    section#about div {
+        padding: 0.1em 1em;
+    }
+
 }
