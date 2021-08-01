@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () =>
 			// text exists! start typewriter animation
 			typeWriter(dataText[i], 0, function(){
 				// after callback (and whole text has been animated), start next text
-				StartTextAnimation(i + 1);
+				setTimeout(StartTextAnimation, 1500, i + 1);
 			});
 		}
 	}
