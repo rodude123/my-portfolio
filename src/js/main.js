@@ -68,14 +68,14 @@ document.addEventListener('DOMContentLoaded', () =>
 		if (typeof dataText[i] === 'undefined'){
 			setTimeout(function() {
 				StartTextAnimation(0);
-			}, 1000);
+			}, 1500);
 			// StartTextAnimation(0);
 		}
 		else if (i < dataText[i].length) {
 			// text exists! start typewriter animation
 			typeWriter(dataText[i], 0, function(){
 				// after callback (and whole text has been animated), start next text
-				StartTextAnimation(i + 1);
+				setTimeout(StartTextAnimation, 1500, i + 1);
 			});
 		}
 	}
