@@ -393,7 +393,8 @@ section#about div {
     /*** Navigation Styles **/
 
     header div h1 {
-        width: min-content;
+        text-align: center;
+        height: 5.125rem;
     }
 
     /***** About Styles *****/
