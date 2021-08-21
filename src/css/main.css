@@ -310,7 +310,6 @@ section#curriculumvitae .cvGrid > div {
 #curriculumvitae .timelineItem span {
     color: hsl(0, 0%, 90%);
 }
-
 /**** Media Queries *****/
 
 @media screen and (max-width: 90em) {
@@ -340,6 +339,7 @@ section#curriculumvitae .cvGrid > div {
     section#curriculumvitae .cvGrid .timeline {
         margin: 0 auto;
     }
+
 }
 
 @media screen and (max-width: 75em) {
@@ -520,6 +520,7 @@ section#curriculumvitae .cvGrid > div {
     section#about div {
         padding: 0.1em 2.5em;
     }
+
 }
 
 @media screen and (max-width: 31em) {
