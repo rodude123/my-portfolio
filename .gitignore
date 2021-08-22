@@ -73,3 +73,5 @@ fabric.properties
 
 # Custom ignores
 .env
+vendor/*
+node_modules/*

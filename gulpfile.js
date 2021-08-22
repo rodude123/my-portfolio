@@ -42,11 +42,18 @@ gulp.task("minifyJS", () =>
 	.on("error", createErrorHandler("gulp.dest"));
 });
 
-gulp.task("watch files", () =>
+gulp.task("movePHPFiles", () =>
+{
+	return gulp.src("src/api/*.php")
+		.pipe(gulp.dest("dist/api"))
+});
+
+gulp.task("watchFiles", () =>
 {
 	gulp.watch("src/*.html", gulp.task("minifyHTML"));
 	gulp.watch("src/css/*.css", gulp.task("minifyCSS"));
 	gulp.watch("src/js/*.js", gulp.task("minifyJS"));
+	gulp.watch("src/api/*.php", gulp.task("movePHPFiles"))
 });
 
 gulp.task("ftp", () =>
@@ -78,4 +85,4 @@ gulp.task("browserSync", () =>
 	gulp.watch("dist").on("change", browserSync.reload)
 });
 
-gulp.task("default", gulp.series(gulp.parallel("watch files", "deploy")));
+gulp.task("default", gulp.series(gulp.parallel("watchFiles", "deploy")));
