@@ -85,4 +85,4 @@ gulp.task("browserSync", () =>
 	gulp.watch("dist").on("change", browserSync.reload)
 });
 
-gulp.task("default", gulp.series(gulp.parallel("watchFiles", "deploy")));
+gulp.task("default", gulp.series(gulp.parallel("minifyHTML", "minifyCSS", "minifyJS", "movePHPFiles")));
