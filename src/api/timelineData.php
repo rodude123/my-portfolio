@@ -1,5 +1,5 @@
 <?php
-require_once "./confjg.php"
+require_once "./confjg.php";
 
 class TimelineData
 {
