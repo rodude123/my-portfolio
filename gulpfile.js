@@ -5,10 +5,10 @@ const cssMin = require("gulp-clean-css")
 const terser = require("gulp-terser");
 const ftp = require("vinyl-ftp");
 const env = require("gulp-env");
-env({
+/*env({
 	file: ".env",
 	type: ".ini"
-});
+});*/
 
 gulp.task("minifyHTML", () =>
 {
