@@ -34,4 +34,4 @@ $app->get(“/timelineData”, function (Request $request, Response $response)
     return $response->withHeader("Content-Type", "application/json");
 });
 
-$app->run();1q
+$app->run();
