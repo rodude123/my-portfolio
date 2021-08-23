@@ -23,8 +23,10 @@ $app->setBasePath("/api");
 
 $timelineData = new TimelineData();
 
-$app->get(“/timelineData”, function (Request $request, Response $response)
+$app->get("/timelineData", function (Request $request, Response $response)
 {
+    global $timelineData;
+    
     $result = $timelineData->getTimelineData();
     
     $json = json_encode($result);
