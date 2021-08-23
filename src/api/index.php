@@ -19,7 +19,7 @@ $app->addRoutingMiddleware();
 // for error checking
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
-$app->setBasePath(“/api”);
+$app->setBasePath("/api");
 
 $timelineData = new TimelineData();
 
