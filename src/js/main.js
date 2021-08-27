@@ -104,11 +104,11 @@ function StartTextAnimation(i)
 
 function getTimelineData()
 {
-	fetch("/api/timelineData").then(res =>
+	fetch("/api/timelineData/edu").then(res =>
 	{
 		res.json().then(json =>
 		{
-			console.log(JSON.parse(json));
+			json
 		})
 	});
 }

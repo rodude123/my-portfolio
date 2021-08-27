@@ -23,16 +23,36 @@ $app->setBasePath("/api");
 
 $timelineData = new TimelineData();
 
-$app->get("/timelineData", function (Request $request, Response $response)
+$app->get("/timelineData/{timeline}", function (Request $request, Response $response, array $args)
 {
     global $timelineData;
+    $json = $result = "";
     
-    $result = $timelineData->getTimelineData();
+    //check if route is available if it is get the data 
+    //otherwise return an error
+    if($args["timeline"] == "edu")
+    {
+        $result = $timelineData->getEduData();
+    }
+    else if($args["timeline"] == "work")
+    {
+        $result = $timelineData->getWorkData();
+    }
+    else 
+    {
+        $result = array("errorMessage" => "Error, timeline data not found");
+    }
     
     $json = json_encode($result);
-    
+
     $response->getBody()->write($json);
     
+    //if it is an error give a 404 code since it can't find the data
+    if(array_key_exists(“errorMessage”, $result))
+    {
+        $response = $response->withStatus(404);
+    }
+    //use content type json to indicate json data on frontend.
     return $response->withHeader("Content-Type", "application/json");
 });
 
