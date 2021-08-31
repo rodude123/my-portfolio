@@ -5,13 +5,17 @@
 /****** Root Style ******/
 :root {
     /* Colours */
-    --primaryDefault: hsla(79, 62%, 51%, 1);
-    --primaryHover: hsla(79, 75%, 41%, 1);
-    --errorDefault: hsla(0, 62%, 51%, 1);
+    --mainHue: 79;
+    --mainSat: 62%;
+    --mainLight: 51%;
+    --primaryDefault: hsla(var(--mainHue), var(--mainSat), var(--mainLight), 1);
+    --primaryHover: hsla(var(--mainHue), var(--mainSat), calc(var(--mainLight) - 10%), 1);
+    --timelineItemBrdr: hsla(var(--mainHue), var(--mainSat), calc(var(--mainLight) - 20%), 1);
+    --errorDefault: hsla(0, var(--mainSat), var(--mainLight), 1);
     --grey: hsla(0, 0%, 39%, 1);
     --mutedGrey: hsla(0, 0%, 67%, 0.58);
     --mutedBlack: hsla(0, 0%, 0%, 0.25);
-    --navBack: hsl(0, 0%, 30%);
+    --navBack: hsla(0, 0%, 30%, 1);
 
     /* Font Sizes */
     --titleFS: 2.25rem;
@@ -79,7 +83,6 @@ a.btnOutline {
 
 a.btnPrimary:hover, form input[type="submit"]:hover {
     background: var(--primaryHover);
-
 }
 
 a.btn:active, form input[type="submit"]:active {
@@ -96,6 +99,10 @@ a.btn:active, form input[type="submit"]:active {
 
 .textShadow:hover {
     text-shadow: 0 6px 4px var(--mutedBlack);
+}
+
+section#about, section#curriculumvitae h1 {
+    padding: 0 5rem;
 }
 
 /*** Navigation Styles **/
@@ -122,6 +129,7 @@ nav {
 
 nav.scrolled {
     background-color: var(--navBack);
+    z-index: 1;
 }
 
 nav #nav-check {
@@ -204,18 +212,155 @@ div h1 span {
 /***** About Styles *****/
 
 section#about {
-    padding: 0 5em;
+    margin-bottom: 5rem;
 }
 
 section#about div {
     padding: 0.1em 5em;
 }
 
+/****** CV Styles *******/
+
+section#curriculumvitae{
+    background-color: var(--primaryDefault);
+    color: #FFFFFF;
+    padding: 2em 0;
+}
+
+section#curriculumvitae .cvGrid {
+    display: flex;
+    flex-direction: row;
+    padding: 0 1.5rem;
+    flex-wrap: wrap;
+}
+
+section#curriculumvitae .cvGrid > div {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+section#curriculumvitae .cvGrid h2 {
+    text-align: center;
+}
+
+section#curriculumvitae .timeline {
+    position: relative;
+    max-width: 30em;
+    gap: 1em;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: 100%;
+}
+
+section#curriculumvitae #work {
+    margin: 0 auto 0 8rem;
+}
+
+section#curriculumvitae .timeline:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    border: 4px var(--timelineItemBrdr) solid;
+    /*border-bottom: 4;*/
+    right: 194px;
+    top: 0;
+}
+
+section#curriculumvitae .timeline:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+section#curriculumvitae .timelineItem {
+    border: 2px solid var(--timelineItemBrdr);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 0 1rem;
+    width: 50%;
+    position: relative;
+    background-color: var(--primaryHover);
+}
+
+section#curriculumvitae .timelineItem:before, .timelineItem:after {
+    content: '';
+    position: absolute;
+}
+
+section#curriculumvitae .timelineItem:before{
+    content: '';
+    right: -20px;
+    top: calc(50% - 5px);
+    border-style: solid;
+    border-color: var(--timelineItemBrdr) var(--timelineItemBrdr) transparent transparent;
+    border-width: 20px;
+    transform: rotate(45deg);
+}
+section#curriculumvitae .timelineItem:nth-child(2n) {
+    margin-left: 21em;
+}
+
+section#curriculumvitae .timelineItem:nth-child(2n):before {
+    right: auto;
+    left: -20px;
+    border-color: transparent transparent var(--timelineItemBrdr) var(--timelineItemBrdr);
+}
+
+section#curriculumvitae .timelineItem h3 {
+    font-weight: normal;
+}
+
+section#curriculumvitae .timelineItem span {
+    color: hsl(0, 0%, 90%);
+}
+
 /**** Media Queries *****/
+
+@media screen and (max-width: 90em) {
+
+    /****** CV Styles *******/
+
+    section#curriculumvitae .cvGrid {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section#curriculumvitae .cvGrid > div {
+        width: 100%;
+    }
+
+    section#curriculumvitae .cvGrid > div:first-child {
+        padding-bottom: 2.5em;
+        margin-bottom: 2.5em;
+        border-bottom: 5px #FFFFFF solid;
+    }
+
+    section#curriculumvitae .cvGrid h2 {
+        margin-left: 5em;
+    }
+
+    section#curriculumvitae .cvGrid .timeline {
+        margin: 0 auto;
+    }
+
+}
 
 @media screen and (max-width: 75em) {
 
+    /*** Template Styles ****/
+
+    section#about, section#curriculumvitae h1  {
+        padding: 0 1em;
+    }
+
     /*** Navigation Styles **/
+
+    /** Default Nav Styles **/
 
     nav {
         display: block;
@@ -380,16 +525,54 @@ section#about div {
 
     /***** About Styles *****/
 
-    section#about {
-        padding: 0 1em;
-    }
-
     section#about div {
         padding: 0.1em 2.5em;
     }
+
+    /****** CV Styles *******/
+
+    section#curriculumvitae .cvGrid {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 55em) {
+
+    /****** CV Styles *******/
+
+    section#curriculumvitae .cvGrid .timeline {
+        margin: 0 1em;
+        max-width: 100%;
+    }
+
+    section#curriculumvitae .timeline:before {
+        border: none;
+    }
+
+    section#curriculumvitae .timelineItem{
+        width: 95%;
+    }
+
+    section#curriculumvitae .timelineItem:nth-child(2n) {
+        margin-left: 0;
+    }
+
+    section#curriculumvitae .timelineItem:before {
+        right: unset;
+        left: unset;
+        border:none
+    }
+
 }
 
 @media screen and (max-width: 31em) {
+
+    /*** Template Styles ****/
+
+    section#about, section#curriculumvitae h1 {
+        padding: 0 1em;
+    }
+
     /*** Navigation Styles **/
 
     header div h1 {
@@ -398,10 +581,6 @@ section#about div {
     }
 
     /***** About Styles *****/
-
-    section#about {
-        padding: 0 0.5em;
-    }
 
     section#about div {
         padding: 0.1em 1em;
