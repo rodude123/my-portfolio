@@ -101,16 +101,53 @@ function StartTextAnimation(i)
 }
 
 // cv timeline data
-
+/**
+ * getTimelineData function
+ * Gets the timeline data from backend route and appends the data on to the timeline.
+ */
 function getTimelineData()
 {
 	fetch("/api/timelineData/edu").then(res =>
 	{
 		res.json().then(json =>
 		{
-			json
+			if (res.ok)
+			{
+				json.forEach(item =>
+				{
+					let timelineItem = document.createElement("div")
+					timelineItem.classList.add("timelineItem");
+					timelineItem.innerHTML = `
+					<h3 class="timelineHeader">${item["startPeriod"]} - ${item["endPeriod"]}</h3>
+					<span>Grade: ${item["grade"]}</span>
+					<p class="timelineText">${item["course"]}</p>
+				`;
+					document.getElementById("edu").appendChild(timelineItem);
+				});
+			}
 		})
 	});
+
+	fetch("/api/timelineData/work").then(res =>
+	{
+		res.json().then(json =>
+		{
+			if (res.ok)
+			{
+				json.forEach(item =>
+				{
+					let timelineItem = document.createElement("div")
+					timelineItem.classList.add("timelineItem");
+					timelineItem.innerHTML = `
+					<h3 class="timelineHeader">${item["startPeriod"]} - ${item["endPeriod"]}</h3>
+					<span>${item["companyName"]} - ${item["area"]}</span>
+					<p class="timelineText">${item["title"]}</p>
+				`;
+					document.getElementById("work").appendChild(timelineItem);
+				})
+			}
+		})
+	})
 }
 
 document.addEventListener('DOMContentLoaded', () =>
@@ -119,5 +156,5 @@ document.addEventListener('DOMContentLoaded', () =>
     StartTextAnimation(0);
 
     // get timeline data and add it to the timeline
-	//getTimelineData();
+	getTimelineData();
 });

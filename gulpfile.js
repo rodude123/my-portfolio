@@ -5,10 +5,10 @@ const cssMin = require("gulp-clean-css")
 const terser = require("gulp-terser");
 const ftp = require("vinyl-ftp");
 const env = require("gulp-env");
-/*env({
+env({
 	file: ".env",
 	type: ".ini"
-});*/
+});
 
 gulp.task("minifyHTML", () =>
 {
@@ -33,13 +33,13 @@ gulp.task("minifyJS", () =>
 			console.error("Error from " + name + " in compress task", err.toString());
 		};
 	}
-	
+
 	return gulp.src("src/js/*.js")
-	.on("error", createErrorHandler("gulp.src"))
-	.pipe(terser())
-	.on("error", createErrorHandler("terser"))
-	.pipe(gulp.dest("dist/js"))
-	.on("error", createErrorHandler("gulp.dest"));
+		.on("error", createErrorHandler("gulp.src"))
+		.pipe(terser())
+		.on("error", createErrorHandler("terser"))
+		.pipe(gulp.dest("dist/js"))
+		.on("error", createErrorHandler("gulp.dest"));
 });
 
 gulp.task("movePHPFiles", () =>
@@ -85,4 +85,4 @@ gulp.task("browserSync", () =>
 	gulp.watch("dist").on("change", browserSync.reload)
 });
 
-gulp.task("default", gulp.series(gulp.parallel("minifyHTML", "minifyCSS", "minifyJS", "movePHPFiles")));
+gulp.task("default", gulp.series(gulp.parallel("watchFiles", "deploy")));

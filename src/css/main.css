@@ -211,6 +211,10 @@ div h1 span {
 
 /***** About Styles *****/
 
+section#about {
+    margin-bottom: 5rem;
+}
+
 section#about div {
     padding: 0.1em 5em;
 }
@@ -235,14 +239,13 @@ section#curriculumvitae .cvGrid > div {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-
 }
 
-#curriculumvitae .cvGrid h2 {
+section#curriculumvitae .cvGrid h2 {
     text-align: center;
 }
 
-#curriculumvitae .timeline {
+section#curriculumvitae .timeline {
     position: relative;
     max-width: 30em;
     gap: 1em;
@@ -252,7 +255,11 @@ section#curriculumvitae .cvGrid > div {
     height: 100%;
 }
 
-#curriculumvitae .timeline:before {
+section#curriculumvitae #work {
+    margin: 0 auto 0 8rem;
+}
+
+section#curriculumvitae .timeline:before {
     content: "";
     position: absolute;
     height: 100%;
@@ -262,13 +269,13 @@ section#curriculumvitae .cvGrid > div {
     top: 0;
 }
 
-#curriculumvitae .timeline:after {
+section#curriculumvitae .timeline:after {
     content: "";
     display: table;
     clear: both;
 }
 
-#curriculumvitae .timelineItem {
+section#curriculumvitae .timelineItem {
     border: 2px solid var(--timelineItemBrdr);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -279,12 +286,12 @@ section#curriculumvitae .cvGrid > div {
     background-color: var(--primaryHover);
 }
 
-#curriculumvitae .timelineItem:before, .timelineItem:after {
+section#curriculumvitae .timelineItem:before, .timelineItem:after {
     content: '';
     position: absolute;
 }
 
-#curriculumvitae .timelineItem:before{
+section#curriculumvitae .timelineItem:before{
     content: '';
     right: -20px;
     top: calc(50% - 5px);
@@ -293,23 +300,24 @@ section#curriculumvitae .cvGrid > div {
     border-width: 20px;
     transform: rotate(45deg);
 }
-#curriculumvitae .timelineItem:nth-child(2n) {
+section#curriculumvitae .timelineItem:nth-child(2n) {
     margin-left: 21em;
 }
 
-#curriculumvitae .timelineItem:nth-child(2n):before {
+section#curriculumvitae .timelineItem:nth-child(2n):before {
     right: auto;
     left: -20px;
     border-color: transparent transparent var(--timelineItemBrdr) var(--timelineItemBrdr);
 }
 
-#curriculumvitae .timelineItem h3 {
+section#curriculumvitae .timelineItem h3 {
     font-weight: normal;
 }
 
-#curriculumvitae .timelineItem span {
+section#curriculumvitae .timelineItem span {
     color: hsl(0, 0%, 90%);
 }
+
 /**** Media Queries *****/
 
 @media screen and (max-width: 90em) {
@@ -519,6 +527,40 @@ section#curriculumvitae .cvGrid > div {
 
     section#about div {
         padding: 0.1em 2.5em;
+    }
+
+    /****** CV Styles *******/
+
+    section#curriculumvitae .cvGrid {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 55em) {
+
+    /****** CV Styles *******/
+
+    section#curriculumvitae .cvGrid .timeline {
+        margin: 0 1em;
+        max-width: 100%;
+    }
+
+    section#curriculumvitae .timeline:before {
+        border: none;
+    }
+
+    section#curriculumvitae .timelineItem{
+        width: 95%;
+    }
+
+    section#curriculumvitae .timelineItem:nth-child(2n) {
+        margin-left: 0;
+    }
+
+    section#curriculumvitae .timelineItem:before {
+        right: unset;
+        left: unset;
+        border:none
     }
 
 }

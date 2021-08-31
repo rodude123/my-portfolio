@@ -40,7 +40,7 @@ $app->get("/timelineData/{timeline}", function (Request $request, Response $resp
     }
     else 
     {
-        $result = array("errorMessage" => "Error, timeline data not found");
+        $result = array(array("errorMessage" => "Error, timeline data not found"));
     }
     
     $json = json_encode($result);
@@ -48,7 +48,7 @@ $app->get("/timelineData/{timeline}", function (Request $request, Response $resp
     $response->getBody()->write($json);
     
     //if it is an error give a 404 code since it can't find the data
-    if(array_key_exists(“errorMessage”, $result))
+    if(array_key_exists("errorMessage", $result[0]))
     {
         $response = $response->withStatus(404);
     }
