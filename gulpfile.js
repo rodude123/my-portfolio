@@ -19,7 +19,7 @@ gulp.task("minifyHTML", () =>
 
 gulp.task("minifyCSS", () =>
 {
-	return gulp.src("src/css/*.css")
+	return gulp.src("src/css/main.css")
 		.pipe(cssMin({compatibility: "ie8"}))
 		.pipe(gulp.dest("dist/css"));
 });
