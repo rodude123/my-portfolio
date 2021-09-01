@@ -1,0 +1,269 @@
+/**** Media Queries *****/
+
+@media screen and (max-width: 90em) {
+
+    /****** CV Styles *******/
+
+    section#curriculumvitae .cvGrid {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section#curriculumvitae .cvGrid > div {
+        width: 100%;
+    }
+
+    section#curriculumvitae .cvGrid > div:first-child {
+        padding-bottom: 2.5em;
+        margin-bottom: 2.5em;
+        border-bottom: 5px #FFFFFF solid;
+    }
+
+    section#curriculumvitae .cvGrid h2 {
+        margin-left: 5em;
+    }
+
+    section#curriculumvitae .cvGrid .timeline {
+        margin: 0 auto;
+    }
+
+}
+
+@media screen and (max-width: 75em) {
+
+    /*** Template Styles ****/
+
+    section#about, section#curriculumvitae h1  {
+        padding: 0 1em;
+    }
+
+    /*** Navigation Styles **/
+
+    /** Default Nav Styles **/
+
+    nav {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: var(--navBack);
+        position: fixed;
+        top: 0;
+        padding: 0;
+    }
+
+    nav a h1{
+        margin-left: 1ch;
+    }
+
+    nav  .nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 75px;
+        top: -360px;
+    }
+
+    nav ul {
+        position: fixed;
+        display: block;
+        width: 100%;
+        background-color: #333;
+        transition: all 0.4s ease-in;
+        overflow-y: hidden;
+        padding-left: 0;
+        margin-top: 7px;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        transform: translateX(-30px);
+        transition: all 0.4s ease-in;
+        opacity: 0;
+    }
+
+    .nav-btn label {
+        display: inline-block;
+        cursor: pointer;
+        width: 60px;
+        height: 50px;
+        position: fixed;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .5s ease-in;
+        -moz-transition: .5s ease-in;
+        -o-transition: .5s ease-in;
+        transition: .5s ease-in;
+    }
+
+    .nav-btn label span {
+        display: block;
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background-color: #FFFFFF;
+        opacity: 1;
+        right: 0;
+        top: 20px;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in;
+        -moz-transition: .25s ease-in;
+        -o-transition: .25s ease-in;
+        transition: .25s ease-in;
+    }
+
+    /** Burger Not Clicked **/
+
+    nav  #nav-check:not(:checked) ~ ul{
+        height: auto;
+        max-height: 0;
+    }
+
+    nav #nav-check:not(:checked) ~ .nav-btn label span:nth-child(1) {
+        top: 8px;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+
+    nav #nav-check:not(:checked) ~ .nav-btn label span:nth-child(2) {
+        top: 23px;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+
+    nav #nav-check:not(:checked) ~ .nav-btn label span:nth-child(3) {
+        top: 38px;
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        transform-origin: left center;
+    }
+
+    nav .nav-btn label:hover, nav  #nav-check:checked ~ .nav-btn  label {
+        background-color: rgba(-1, 0, 0, 0.3);
+    }
+
+    /**** Burger Clicked ****/
+
+    nav #nav-check:checked ~ ul{
+        max-height: 50vh;
+        overflow-y: hidden;
+    }
+
+    nav #nav-check:checked ~ ul li a {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(1) a {
+        transition-delay: 0.15s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(2) a {
+        transition-delay: 0.25s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(3) a {
+        transition-delay: 0.35s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(4) a {
+        transition-delay: 0.45s;
+    }
+
+    nav #nav-check:checked ~ ul li:nth-child(5) a {
+        transition-delay: 0.55s;
+    }
+
+    nav #nav-check:checked ~ .nav-btn label span:first-child {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    nav #nav-check:checked ~ .nav-btn label span:nth-child(2){
+        width: 0;
+        opacity: 0;
+    }
+
+    nav #nav-check:checked ~ .nav-btn label span:last-child {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    /***** About Styles *****/
+
+    section#about div {
+        padding: 0.1em 2.5em;
+    }
+
+    /****** CV Styles *******/
+
+    section#curriculumvitae .cvGrid {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 55em) {
+
+    /****** CV Styles *******/
+
+    section#curriculumvitae .cvGrid .timeline {
+        margin: 0 1em;
+        max-width: 100%;
+    }
+
+    section#curriculumvitae .timeline:before {
+        border: none;
+    }
+
+    section#curriculumvitae .timelineItem{
+        width: 95%;
+    }
+
+    section#curriculumvitae .timelineItem:nth-child(2n) {
+        margin-left: 0;
+    }
+
+    section#curriculumvitae .timelineItem:before {
+        right: unset;
+        left: unset;
+        border:none
+    }
+
+}
+
+@media screen and (max-width: 31em) {
+
+    /*** Template Styles ****/
+
+    section#about, section#curriculumvitae h1 {
+        padding: 0 1em;
+    }
+
+    /*** Navigation Styles **/
+
+    header div h1 {
+        text-align: center;
+        height: 5.125rem;
+    }
+
+    /***** About Styles *****/
+
+    section#about div {
+        padding: 0.1em 1em;
+    }
+
+}

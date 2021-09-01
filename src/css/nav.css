@@ -1,0 +1,103 @@
+/*** Navigation Styles **/
+
+header {
+    background: #6A6A6A url("../imgs/hero.jpg") no-repeat bottom;
+    background-size: cover;
+    height: 40%;
+    color:  #FFFFFF;
+    backdrop-filter: grayscale(100%);
+    position: relative;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.25em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: background-color 0.4s ease-in;
+}
+
+nav.scrolled {
+    background-color: var(--navBack);
+    z-index: 1;
+}
+
+nav #nav-check {
+    display: none;
+}
+
+nav .nav-btn {
+    display: none;
+}
+
+nav h1 {
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin: 0;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li span {
+    visibility: hidden;
+}
+
+nav ul li a:hover span, nav ul li .active span {
+    visibility: visible;
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10em;
+}
+
+header div .btn {
+    margin: 2em 0;
+}
+
+header div button {
+    background: none;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+i.fa-chevron-down {
+    color: var(--mutedGrey);
+    font-size: 3.75em;
+    margin: 1.5rem 0;
+}
+
+div h1 span {
+    visibility: visible;
+    animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+    50% {
+        visibility: hidden;
+    }
+}
