@@ -4,7 +4,8 @@
 /*local imports*/
 @import "nav.css";
 @import "about.css";
-
+@import "cv.css";
+@import "mediaQueries.css";
 
 /****** Root Style ******/
 :root {
