@@ -29,7 +29,7 @@ class TimelineData
     function getWorkData()
     {
         $conn = dbConn();
-        $stmt = $conn->prepare("SELECT DATE_FORMAT(startPeriod, '%b, %Y') as startPeriod, DATE_FORMAT(endPeriod, '%b, %Y') as endPeriod, companyName, area, title  FROM work ORDER BY startPeriod DESC;");
+        $stmt = $conn->prepare("SELECT DATE_FORMAT(startPeriod, '%b, %Y') as startPeriod, DATE_FORMAT(endPeriod, '%b, %Y') as endPeriod, companyName, area, title  FROM work ORDER BY work.startPeriod DESC;");
         $stmt->execute();
 
         // set the resulting array to associative

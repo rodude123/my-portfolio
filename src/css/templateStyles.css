@@ -1,0 +1,81 @@
+/*** Template Styles ****/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Noto Sans KR, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: var(--generalFS);
+    line-height: 1.625rem;
+}
+
+a:visited {
+    color: inherit;
+}
+
+h1, nav {
+    font-family: Share Tech Mono, monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--titleFS);
+    line-height: 2.5625rem;
+    text-transform: lowercase;
+}
+
+h2 {
+    font-family: Noto Sans KR, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: var(--headingFS);
+    line-height: 2.1875rem;
+}
+
+a.btn, form input[type="submit"] {
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 0.625em;
+    border: 0.3215em solid var(--primaryDefault);
+    color: #FFFFFF;
+}
+
+a.btn:hover {
+    border: 0.3215em solid var(--primaryHover);
+}
+
+a.btnPrimary, form input[type="submit"] {
+    background: var(--primaryDefault);
+    cursor: pointer;
+}
+
+a.btnOutline {
+    background: #FFFFFF;
+    color: var(--primaryDefault);
+}
+
+a.btnPrimary:hover, form input[type="submit"]:hover {
+    background: var(--primaryHover);
+}
+
+a.btn:active, form input[type="submit"]:active {
+    padding: 0.8rem 1.8rem;
+}
+
+.boxShadowOut:hover {
+    box-shadow: 0 6px 4px 0 var(--mutedBlack);
+}
+
+.boxShadowIn:active {
+    box-shadow: inset 0 6px 4px 0 var(--mutedBlack);
+}
+
+.textShadow:hover {
+    text-shadow: 0 6px 4px var(--mutedBlack);
+}
+
+section#about, section#curriculumvitae h1 {
+    padding: 0 5rem;
+}
