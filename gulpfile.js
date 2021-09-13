@@ -67,7 +67,7 @@ gulp.task("ftp", () =>
 		parallel: 1,
 	});
 	return gulp.src("dist/**", {base: "dist", dot: true})
-		.pipe(conn.newer("/"))
+		.pipe(conn.newerOrDifferentSize("/"))
 		.pipe(conn.dest("/"));
 });
 

@@ -33,14 +33,6 @@ section#curriculumvitae .timeline {
     height: 100%;
 }
 
-/*section#curriculumvitae .timeline#edu {
-    margin: 0 auto;
-}
-
-section#curriculumvitae .timeline#work {
-    margin-left: auto;
-}*/
-
 section#curriculumvitae #work {
     margin: 0 auto 0 8rem;
 }
@@ -50,7 +42,6 @@ section#curriculumvitae .timeline:before {
     position: absolute;
     height: 100%;
     border: 4px var(--timelineItemBrdr) solid;
-    /*border-bottom: 4;*/
     right: 194px;
     top: 0;
 }

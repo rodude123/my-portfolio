@@ -1,0 +1,94 @@
+/*** Projects Styles ****/
+
+section#projects {
+    display: flex;
+    flex-direction: row;
+    padding: 0 2.5rem;
+    border-bottom: 2px solid var(--mutedGrey);
+}
+
+section#projects .mainProj, section#projects .otherProj {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+
+section#projects .mainProj {
+    justify-content: center;
+    border-right: 2px solid var(--mutedGrey);
+    padding: 0 2.5em 5em 0;
+}
+
+section#projects .mainProj img, section#projects .otherProj .oProjItem img {
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display: block;
+    margin: 1em auto;
+}
+
+section#projects .mainProj img {
+    max-width: 30rem;
+}
+
+section#projects .mainProj .flexRow {
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+}
+
+section#projects .mainProj .flexCol {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+}
+
+section#projects .otherProj > a{
+    margin: 5rem 0;
+}
+
+section#projects .otherProj > div{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+section#projects .otherProj > div .oProjItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 90%;
+    border: 1px solid var(--grey);
+    gap: 1em;
+    box-shadow: 0 6px 4px 0 var(--mutedBlack);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 0 1em;
+}
+
+section#projects .otherProj > div .oProjItem:nth-child(2) {
+    flex-direction: row-reverse;
+}
+
+section#projects .otherProj .oProjItem img {
+    max-width: 10rem;
+}
+
+section#projects .oProjItem .flexCol div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 3em;
+    margin-left: 2em;
+}
+
+section#projects .flexCol div:nth-child(2) .btn {
+    padding: 0.25em 0.5em;
+}

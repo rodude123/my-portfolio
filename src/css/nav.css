@@ -86,7 +86,7 @@ header div button {
 }
 
 i.fa-chevron-down {
-    color: var(--mutedGrey);
+    color: hsla(0, 0%, 67%, 0.58);
     font-size: 3.75em;
     margin: 1.5rem 0;
 }
