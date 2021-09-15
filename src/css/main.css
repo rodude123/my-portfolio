@@ -31,8 +31,6 @@
     --headingFS: 1.5rem;
 }
 
-
-
 /**** Media Queries *****/
 
 @media screen and (max-width: 90em) {
@@ -248,6 +246,42 @@
 
     section#curriculumvitae .cvGrid {
         padding: 0;
+    }
+
+    /**** Projects Styles ***/
+
+    section#projects {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    section#projects .mainProj {
+        border-right: 0;
+        padding: 0;
+        width: 100%;
+        margin: 0 5em;
+    }
+
+    section#projects .mainProj img {
+        padding-right: 1em;
+        gap: 1em;
+    }
+
+    section#projects .mainProj, section#projects .otherProj {
+        align-items: unset;
+    }
+
+    section#projects .mainProj .flexRow {
+        flex-direction: column;
+        margin: 0 2.5em;
+    }
+
+    section#projects .mainProj .flexCol {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 }
 

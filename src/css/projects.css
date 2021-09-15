@@ -32,6 +32,7 @@ section#projects .mainProj img, section#projects .otherProj .oProjItem img {
 }
 
 section#projects .mainProj img {
+    width: 100%;
     max-width: 30rem;
 }
 
