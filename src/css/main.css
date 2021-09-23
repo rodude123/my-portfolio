@@ -31,6 +31,10 @@
     --headingFS: 1.5rem;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 /**** Media Queries *****/
 
 @media screen and (max-width: 90em) {
@@ -254,7 +258,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0;
     }
 
     section#projects .mainProj {
@@ -265,12 +268,7 @@
     }
 
     section#projects .mainProj img {
-        padding-right: 1em;
-        gap: 1em;
-    }
-
-    section#projects .mainProj, section#projects .otherProj {
-        align-items: unset;
+        padding: 0 1em;
     }
 
     section#projects .mainProj .flexRow {
@@ -283,6 +281,33 @@
         justify-content: center;
         align-items: center;
     }
+
+    section#projects .otherProj {
+        width: 100%;
+    }
+
+    section#projects .otherProj .btn{
+        width: 10em;
+        text-align: center;
+    }
+
+    section#projects .otherProj > div .oProjItem, section#projects .otherProj > div .oProjItem:nth-child(2) {
+        flex-direction: column;
+    }
+
+    section#projects .oProjItem .flexCol div:nth-child(2) {
+        justify-content: center;
+        margin-left: 0;
+        margin-bottom: 1em;
+    }
+
+    section#projects .otherProj > a {
+        margin-left: 3em;
+        margin-right: 3em;
+        text-align: center;
+
+    }
+
 }
 
 @media screen and (max-width: 55em) {
@@ -331,6 +356,18 @@
 
     section#about div {
         padding: 0.1em 1em;
+    }
+
+    /**** Projects Styles ***/
+
+    section#projects .mainProj .flexCol {
+        flex-direction: column;
+    }
+
+    section#projects .oProjItem .flexCol div:nth-child(2) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
 }

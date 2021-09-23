@@ -79,7 +79,9 @@ section#projects .otherProj > div .oProjItem:nth-child(2) {
 }
 
 section#projects .otherProj .oProjItem img {
-    max-width: 10rem;
+    max-width: 30rem;
+    width: 100%;
+    padding: 0 1em;
 }
 
 section#projects .oProjItem .flexCol div:nth-child(2) {

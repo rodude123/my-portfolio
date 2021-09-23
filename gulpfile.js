@@ -79,11 +79,14 @@ gulp.task("deploy", () =>
 gulp.task("browserSync", () =>
 {
 	browserSync.init({
-		server: {
-			baseDir: "dist"
-		}
+		// server: {
+		// 	baseDir: "dist"
+		// },
+		proxy: "https://rohitpai.tech/",
+		serveStatic: ["./dist"]
+
 	});
 	gulp.watch("dist").on("change", browserSync.reload)
 });
 
-gulp.task("default", gulp.series(gulp.parallel("watchFiles", "deploy")));
+gulp.task("default", gulp.series(gulp.parallel("watchFiles", "browserSync")));

@@ -20,6 +20,7 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-terser": "^2.0.1",
     "gulp-uglify": "^3.0.2",
+    "jest": "^27.2.0",
     "normalize.css": "^8.0.1",
     "require": "^2.4.20",
     "vinyl-ftp": "^0.6.1"
