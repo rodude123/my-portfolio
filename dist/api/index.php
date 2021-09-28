@@ -9,7 +9,8 @@ use Slim\Factory\AppFactory;
 
 //require “routes.php”;
 require "../vendor/autoload.php";
-include "timelineData.php"; 
+include "timelineData.php";
+include "projectData.php";
 
 // Start slim
 $app = AppFactory::create();

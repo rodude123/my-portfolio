@@ -9,7 +9,8 @@ use Slim\Factory\AppFactory;
 
 //require “routes.php”;
 require "../vendor/autoload.php";
-include "timelineData.php"; 
+include "timelineData.php";
+include "projectData.php";
 
 // Start slim
 $app = AppFactory::create();
@@ -22,6 +23,7 @@ $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 $app->setBasePath("/api");
 
 $timelineData = new TimelineData();
+$projectData = new ProjectData();
 
 $app->get("/timelineData/{timeline}", function (Request $request, Response $response, array $args)
 {
@@ -52,6 +54,26 @@ $app->get("/timelineData/{timeline}", function (Request $request, Response $resp
     {
         $response = $response->withStatus(404);
     }
+
+    //use content type json to indicate json data on frontend.
+    return $response->withHeader("Content-Type", "application/json");
+});
+
+$app->get('/projectData', function (Request $request, Response $response)
+{
+    global $projectData;
+
+    $result= $projectData->getProjectData();
+
+    $json = json_encode($result);
+
+    $response->getBody()->write($json);
+
+    if(array_key_exists("errorMessage", $result[0]))
+    {
+        $response = $response->withStatus(404);
+    }
+
     //use content type json to indicate json data on frontend.
     return $response->withHeader("Content-Type", "application/json");
 });
