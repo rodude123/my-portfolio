@@ -150,6 +150,58 @@ function getTimelineData()
 	})
 }
 
+/**
+ * getProjectData function
+ * Gets the project data from the backend route and appends the data on to the timeline.
+ */
+function getProjectData()
+{
+	fetch("/api/projectData").then(res =>
+	{
+		res.json().then(json =>
+		{
+			if (res.ok)
+			{
+				json.forEach(item =>
+				{
+					if (item["isMainProject"] === "1")
+					{
+						document.getElementById("mainProj").innerHTML = `
+						<h1>${item["title"]}</h1>
+						<div>
+							<img src="imgs/1000x800.jpg" alt="">
+							<div class="flexRow">
+								<p>${item["information"]}</p>
+								<div class="flexCol">
+									<a href="${(item["projectLink"] === "N/A") ? "#" : item["projectLink"]}" class="btn btnPrimary boxShadowIn boxShadowOut" ${(item["projectLink"] === "N/A") ? "disabled=\"disabled\"" : ""}>View Project</a>
+									<a href="${(item["githubLink"] === "N/A") ? "#" : item["gitubLink"]}" class="btn btnOutline boxShadowIn boxShadowOut" ${(item["githubLink"] === "N/A") ? "disabled=\"disabled\"" : ""}>GitHub</a>
+								</div>
+							</div>
+						</div>
+						`;
+                        return null;
+					}
+
+                    document.querySelector("#otherProj div").innerHTML += `
+                    <div class="oProjItem">
+                        <img src="imgs/500x400.jpg" alt="">
+                        <div class="flexCol">
+                            <div>
+                                <p>${item["information"]}</p>
+                            </div>
+                            <div>
+                                <a href="${(item["projectLink"] === "N/A") ? "#" : item["projectLink"]}" class="btn btnPrimary boxShadowIn boxShadowOut"${(item["projectLink"] === "N/A") ? "disabled=\"disabled\"" : ""}>View Project</a>
+                                <a href="${(item["githubLink"] === "N/A") ? "#" : item["gitubLink"]}" class="btn btnOutline boxShadowIn boxShadowOut">${(item["githubLink"] === "N/A") ? "disabled=\"disabled\"" : ""}Github</a>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+				})
+			}
+		})
+	})
+}
+
 document.addEventListener('DOMContentLoaded', () =>
 {
     // start the text animation
@@ -157,4 +209,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
     // get timeline data and add it to the timeline
 	getTimelineData();
+
+	// get projectData
+	getProjectData();
 });

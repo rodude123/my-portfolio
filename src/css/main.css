@@ -2,10 +2,11 @@
 @import "/node_modules/normalize.css/normalize.css";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech+Mono&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
 /*local imports*/
+@import "templateStyles.css";
 @import "nav.css";
 @import "about.css";
 @import "cv.css";
-@import "templateStyles.css";
+@import "projects.css";
 
 /****** Root Style ******/
 :root {
@@ -18,7 +19,9 @@
     --timelineItemBrdr: hsla(var(--mainHue), var(--mainSat), calc(var(--mainLight) - 20%), 1);
     --errorDefault: hsla(0, var(--mainSat), var(--mainLight), 1);
     --grey: hsla(0, 0%, 39%, 1);
-    --mutedGrey: hsla(0, 0%, 67%, 0.58);
+    --notAvailableDefault: hsla(0, 0%, 39%, 1);
+    --notAvailableHover: hsla(0, 0%,32%, 1);
+    --mutedGrey: hsla(0, 0%, 78%, 1);
     --mutedBlack: hsla(0, 0%, 0%, 0.25);
     --navBack: hsla(0, 0%, 30%, 1);
 
@@ -28,7 +31,9 @@
     --headingFS: 1.5rem;
 }
 
-
+*{
+    box-sizing: border-box;
+}
 
 /**** Media Queries *****/
 
@@ -246,6 +251,63 @@
     section#curriculumvitae .cvGrid {
         padding: 0;
     }
+
+    /**** Projects Styles ***/
+
+    section#projects {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section#projects .mainProj {
+        border-right: 0;
+        padding: 0;
+        width: 100%;
+        margin: 0 5em;
+    }
+
+    section#projects .mainProj img {
+        padding: 0 1em;
+    }
+
+    section#projects .mainProj .flexRow {
+        flex-direction: column;
+        margin: 0 2.5em;
+    }
+
+    section#projects .mainProj .flexCol {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section#projects .otherProj {
+        width: 100%;
+    }
+
+    section#projects .otherProj .btn{
+        width: 10em;
+        text-align: center;
+    }
+
+    section#projects .otherProj > div .oProjItem, section#projects .otherProj > div .oProjItem:nth-child(2) {
+        flex-direction: column;
+    }
+
+    section#projects .oProjItem .flexCol div:nth-child(2) {
+        justify-content: center;
+        margin-left: 0;
+        margin-bottom: 1em;
+    }
+
+    section#projects .otherProj > a {
+        margin-left: 3em;
+        margin-right: 3em;
+        text-align: center;
+
+    }
+
 }
 
 @media screen and (max-width: 55em) {
@@ -294,6 +356,18 @@
 
     section#about div {
         padding: 0.1em 1em;
+    }
+
+    /**** Projects Styles ***/
+
+    section#projects .mainProj .flexCol {
+        flex-direction: column;
+    }
+
+    section#projects .oProjItem .flexCol div:nth-child(2) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
 }

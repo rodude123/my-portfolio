@@ -40,6 +40,7 @@ a.btn, form input[type="submit"] {
     border-radius: 0.625em;
     border: 0.3215em solid var(--primaryDefault);
     color: #FFFFFF;
+    text-align: center;
 }
 
 a.btn:hover {
@@ -54,6 +55,17 @@ a.btnPrimary, form input[type="submit"] {
 a.btnOutline {
     background: #FFFFFF;
     color: var(--primaryDefault);
+}
+
+a.btnPrimary[disabled] {
+    pointer-events: none;
+    background: var(--notAvailableDefault);
+    border: 0.3215em solid var(--notAvailableDefault);
+}
+
+a.btnPrimary[disabled]:hover {
+    background: var(--notAvailableHover);
+    border: 0.3215em solid var(--notAvailableHover);
 }
 
 a.btnPrimary:hover, form input[type="submit"]:hover {
