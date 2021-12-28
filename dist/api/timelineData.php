@@ -1,11 +1,14 @@
 <?php
+namespace api;
+use PDO;
+
 require_once "./config.php";
 
 /**
  * TimelineData class
  * Define all functions which either get, update, create or delete timeline data
  */
-class TimelineData
+class timelineData
 {
     function getEduData()
     {
