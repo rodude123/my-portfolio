@@ -43,7 +43,7 @@ a.btn, form input[type="submit"] {
     text-align: center;
 }
 
-a.btn:hover {
+a.btn:hover, form input[type="submit"]:hover {
     border: 0.3215em solid var(--primaryHover);
 }
 

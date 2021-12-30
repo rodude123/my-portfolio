@@ -49,14 +49,15 @@ $app->get("/timelineData/{timeline}", function (Request $request, Response $resp
     $json = json_encode($result);
 
     $response->getBody()->write($json);
-    //if it is an error give a 403 code since it can't find the data
-    if(array_key_exists("errorMessage", $result[0]))
-    {
-        $response = $response->withStatus(403);
-    }
-
-    //use content type json to indicate json data on frontend.
-    return $response->withHeader("Content-Type", "application/json");
+    return $response;
+//    //if it is an error give a 403 code since it can't find the data
+//    if(array_key_exists("errorMessage", $result[-1]))
+//    {
+//        $response = $response->withStatus(403);
+//    }
+//
+//    //use content type json to indicate json data on frontend.
+//    return $response->withHeader("Content-Type", "application/json");
 });
 
 $app->get('/projectData', function (Request $request, Response $response)
@@ -69,7 +70,7 @@ $app->get('/projectData', function (Request $request, Response $response)
 
     $response->getBody()->write($json);
 
-    if(array_key_exists("errorMessage", $result[0]))
+    if(array_key_exists("errorMessage", $result[-1]))
     {
         $response = $response->withStatus(403);
     }
