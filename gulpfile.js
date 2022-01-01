@@ -91,7 +91,7 @@ gulp.task("browserSync", () =>
 	gulp.watch("dist").on("change", browserSync.reload)
 });
 
-gulp.task("default", () => 
+gulp.task("default", async () => 
 {
 	if(github)
 	{
