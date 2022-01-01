@@ -101,7 +101,7 @@ gulp.task("default", () =>
 	{
 		(gulp.series("watchFiles", "browserSync")());
 	}
-}
+});
 
 //gulp.task("default", gulp.series(gulp.parallel("watchFiles", "browserSync")));
 
