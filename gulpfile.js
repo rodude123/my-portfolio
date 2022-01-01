@@ -6,10 +6,12 @@ const terser = require("gulp-terser");
 const ftp = require("vinyl-ftp");
 const env = require("gulp-env");
 
-env({
+/*env({
 	file: ".env",
 	type: ".ini"
-});
+});*/
+
+const github = (process.env.github) ? true : false;
 
 gulp.task("minifyHTML", () =>
 {
@@ -57,7 +59,7 @@ gulp.task("watchFiles", () =>
 	gulp.watch("src/api/*.php", gulp.task("movePHPFiles"))
 });
 
-gulp.task("ftp", () =>
+/*gulp.task("ftp", () =>
 {
 	let conn = ftp.create(
 	{
@@ -69,12 +71,12 @@ gulp.task("ftp", () =>
 	return gulp.src("dist/**", {base: "dist", dot: true})
 		.pipe(conn.newerOrDifferentSize("/"))
 		.pipe(conn.dest("/"));
-});
+});*/
 
-gulp.task("deploy", () =>
+/*gulp.task("deploy", () =>
 {
 	gulp.watch("dist", gulp.task("ftp"));
-});
+});*/
 
 gulp.task("browserSync", () =>
 {
@@ -89,4 +91,17 @@ gulp.task("browserSync", () =>
 	gulp.watch("dist").on("change", browserSync.reload)
 });
 
-gulp.task("default", gulp.series(gulp.parallel("watchFiles", "browserSync")));
+gulp.task("default", () => 
+{
+	if(github)
+	{
+		(gulp.series("movePHPFiles", "minifyJS", "minifyHTML", "minifyCSS")());
+	}
+	else
+	{
+		(gulp.series("watchFiles", "browserSync")());
+	}
+}
+
+//gulp.task("default", gulp.series(gulp.parallel("watchFiles", "browserSync")));
+
