@@ -314,7 +314,25 @@
       justify-content: center;
       align-items: center;
     }
-
+    
+    div#findMe, div#sayHello {
+      width: 100%;
+      
+    }
+    
+    
+    div#findMe .findMeContainer {
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    div#findMe .socialIcons {
+      flex-direction: row;
+    }
+    
+    div#findMe .socialIcons div {
+      flex-direction: row;
+    }
 }
 
 @media screen and (max-width: 55em) {
@@ -342,6 +360,9 @@
         border:none
     }
 
+    section#findMe .socialIcons {
+      flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 31em) {
