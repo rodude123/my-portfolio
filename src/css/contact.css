@@ -59,3 +59,51 @@ div#sayHello  #contactForm{
     justify-content: center;
     align-items: center;
 }
+
+#contactForm .flName {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+#contactForm .formControl {
+    width: 100%;
+}
+
+#contactForm input[type="submit"] {
+    margin-top: 1em;
+    align-self: flex-start;
+}
+
+#contactForm .formControl input:not([type="submit"]), #contactForm .formControl textarea {
+    width: 100%;
+    border: 4px solid var(--primaryDefault);
+    background: none;
+    outline: none;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    border-radius: 0.5em;
+    padding: 0 0.5em;
+}
+
+#contactForm .formControl textarea {
+    padding: 0.5em;
+}
+
+
+#contactForm .formControl input:not([type="submit"]).invalid:invalid, #contactForm .formControl textarea.invalid:invalid {
+    border: 4px solid var(--errorDefault);
+}
+
+#contactForm .formControl input:not([type="submit"]).invalid:invalid:focus, #contactForm .formControl textarea.invalid:invalid:focus {
+    border: 4px solid var(--errorHover);
+    box-shadow: 0 4px 2px 0 var(--mutedBlack);
+}
+
+#contactForm .formControl input:not([type="submit"]):focus, #contactForm .formControl textarea:focus {
+    border: 4px solid var(--primaryHover);
+}
+
+#contactForm .formControl input:not([type="submit"]) {
+    height: 3em;
+}
