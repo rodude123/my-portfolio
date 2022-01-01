@@ -308,6 +308,12 @@
         text-align: center;
 
     }
+    
+    section#contact {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
 }
 
