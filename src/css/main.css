@@ -360,7 +360,7 @@
         border:none
     }
 
-    section#findMe .socialIcons {
+    div#findMe .socialIcons {
       flex-direction: column;
     }
 }
@@ -398,7 +398,7 @@
         align-items: center;
     }
     
-    section#findMe .socialIcons {
+    div#findMe .socialIcons {
       flex-direction: column;
     }
 }
