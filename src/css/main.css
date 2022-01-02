@@ -363,6 +363,10 @@
     div#findMe .socialIcons {
       flex-direction: column;
     }
+    
+    #contactForm .flName {
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 31em) {
@@ -398,7 +402,4 @@
         align-items: center;
     }
     
-    div#findMe .socialIcons {
-      flex-direction: column;
-    }
 }
