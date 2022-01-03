@@ -63,7 +63,7 @@ div#sayHello  #contactForm{
 #contactForm .flName {
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    gap: 1;
 }
 
 #contactForm .formControl {

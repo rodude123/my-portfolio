@@ -367,6 +367,7 @@
     #contactForm .flName {
         flex-direction: column;
         gap: 0;
+        width: 100%;
     }
 }
 
