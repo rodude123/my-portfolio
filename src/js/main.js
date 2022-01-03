@@ -213,3 +213,83 @@ document.addEventListener('DOMContentLoaded', () =>
 	// get projectData
 	getProjectData();
 });
+
+// contact form
+document.querySelector("#contactForm").addEventListener("submit", e => 
+{
+    e.preventDefault();
+    let contactData = new FormData();
+    contactData.append("fName", document.querySelector("#fName").value);
+    contactData.append("lName", document.querySelector("#lName").value);
+    contactData.append("email", document.querySelector("#email").value);
+    contactData.append("subject", document.querySelector("#subject").value);
+    contactData.append("message", document.querySelector("#message").value);
+    
+    if (document.querySelector("#fName").value.length == 0)
+    {
+        document.querySelector("#fName").classList.add("invalid");
+        // please fill out all the fields
+        return;
+    }
+    else
+    {
+        document.querySelector("#fName").classList.remove("invalid");
+    }
+
+    if (document.querySelector("#lName").value.length == 0)
+    {
+        document.querySelector("#lName").classList.add("invalid");
+        // please fill out all the fields
+        return;
+    }
+    else
+    {
+        document.querySelector("#lName").classList.remove("invalid");
+    }
+
+    if (document.querySelector("#email").value.length == 0)
+    {
+        document.querySelector("#email").classList.add("invalid");
+        // please fill out all the fields
+        return;
+    }
+    else
+    {
+        document.querySelector("#email").classList.remove("invalid");
+    }
+
+    if (document.querySelector("#subject").value.length == 0)
+    {
+        document.querySelector("#subject").classList.add("invalid");
+        // please fill out all the fields
+        return;
+    }
+    else
+    {
+        document.querySelector("#subject").classList.remove("invalid");
+    }
+
+    if (document.querySelector("#message").value.length == 0)
+    {
+        document.querySelector("#message").classList.add("invalid");
+        // please fill out all the fields
+        return;
+    }
+    else
+    {
+        document.querySelector("#message").classList.remove("invalid");
+    }
+
+    fetch("/api/contact", 
+    {
+       method: "POST",
+       body: contactData
+    }).then(res =>
+    {
+        if(res.ok)
+        {
+            // show message box
+        }
+    });
+    
+});
