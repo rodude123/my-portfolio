@@ -7,6 +7,7 @@
 @import "about.css";
 @import "cv.css";
 @import "projects.css";
+@import "contact.css";
 
 /****** Root Style ******/
 :root {
@@ -17,7 +18,8 @@
     --primaryDefault: hsla(var(--mainHue), var(--mainSat), var(--mainLight), 1);
     --primaryHover: hsla(var(--mainHue), var(--mainSat), calc(var(--mainLight) - 10%), 1);
     --timelineItemBrdr: hsla(var(--mainHue), var(--mainSat), calc(var(--mainLight) - 20%), 1);
-    --errorDefault: hsla(0, var(--mainSat), var(--mainLight), 1);
+    --errorDefault: hsla(0, calc(var(--mainSat) + 10%),calc(var(--mainLight) + 10%), 1);
+    --errorHover: hsla(0, calc(var(--mainSat) + 10%), calc(var(--mainLight) - 10%), 1);
     --grey: hsla(0, 0%, 39%, 1);
     --notAvailableDefault: hsla(0, 0%, 39%, 1);
     --notAvailableHover: hsla(0, 0%,32%, 1);
@@ -307,7 +309,31 @@
         text-align: center;
 
     }
-
+    
+    section#contact {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    div#findMe, div#sayHello {
+      width: 100%;
+      
+    }
+    
+    
+    div#findMe .findMeContainer {
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    div#findMe .socialIcons {
+      flex-direction: row;
+    }
+    
+    div#findMe .socialIcons div {
+      flex-direction: row;
+    }
 }
 
 @media screen and (max-width: 55em) {
@@ -335,6 +361,15 @@
         border:none
     }
 
+    div#findMe .socialIcons {
+      flex-direction: column;
+    }
+    
+    #contactForm .flName {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 31em) {
@@ -369,5 +404,5 @@
         justify-content: center;
         align-items: center;
     }
-
+    
 }

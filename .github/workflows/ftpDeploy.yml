@@ -15,6 +15,7 @@ jobs:
         
     - name: 🔨Run Gulp
       run: |
+        export github="true"
         npm install
         npm start
     

@@ -213,3 +213,55 @@ document.addEventListener('DOMContentLoaded', () =>
 	// get projectData
 	getProjectData();
 });
+
+// contact error message
+document.querySelector("#contactError .close").addEventListener("click", () =>
+	document.querySelector("#contactError").classList.toggle("hidden"));
+
+// contact form
+document.querySelector("#contactForm").addEventListener("submit", e => 
+{
+    e.preventDefault();
+    let contactData = new FormData();
+    contactData.append("fName", document.querySelector("#fName").value);
+    contactData.append("lName", document.querySelector("#lName").value);
+    contactData.append("email", document.querySelector("#email").value);
+    contactData.append("subject", document.querySelector("#subject").value);
+    contactData.append("message", document.querySelector("#message").value);
+    
+    const fields = ['#fName', '#lName', '#email', '#subject', '#message'];
+    let invalid = false;
+
+    fields.forEach(field => {
+        const element = document.querySelector(field);
+        if (element.value.length === 0) {
+            element.classList.add("invalid");
+            invalid = true;
+        } else {
+            element.classList.remove("invalid")
+			document.querySelector("#contactError").classList.remove("error");
+		}
+    });
+    
+   if (invalid)
+   {
+       // show error message
+	   document.querySelector("#contactError").classList.add("error");
+	   document.querySelector("#contactError").classList.remove("hidden");
+	   document.querySelector("#contactError div").innerText = "Please fill out all fields.";
+       return;
+   }
+    
+    fetch("/api/contact", 
+    {
+       method: "POST",
+       body: contactData
+    }).then(res =>
+    {
+        if(res.ok)
+        {
+			document.querySelector("#contactError").classList.remove("hidden");
+			document.querySelector("#contactError div").innerText = "Thanks for contacting me, I will get back to you as soon as possible.";
+		}
+    });
+});

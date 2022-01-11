@@ -3,13 +3,8 @@ const browserSync = require("browser-sync").create();
 const htmlMin = require("gulp-htmlmin");
 const cssMin = require("gulp-clean-css")
 const terser = require("gulp-terser");
-const ftp = require("vinyl-ftp");
-const env = require("gulp-env");
 
-env({
-	file: ".env",
-	type: ".ini"
-});
+const github = (process.env.github) ? true : false;
 
 gulp.task("minifyHTML", () =>
 {
@@ -57,25 +52,6 @@ gulp.task("watchFiles", () =>
 	gulp.watch("src/api/*.php", gulp.task("movePHPFiles"))
 });
 
-gulp.task("ftp", () =>
-{
-	let conn = ftp.create(
-	{
-		host: process.env.host,
-		user: process.env.user,
-		pass: process.env.pass,
-		parallel: 1,
-	});
-	return gulp.src("dist/**", {base: "dist", dot: true})
-		.pipe(conn.newerOrDifferentSize("/"))
-		.pipe(conn.dest("/"));
-});
-
-gulp.task("deploy", () =>
-{
-	gulp.watch("dist", gulp.task("ftp"));
-});
-
 gulp.task("browserSync", () =>
 {
 	browserSync.init({
@@ -89,4 +65,17 @@ gulp.task("browserSync", () =>
 	gulp.watch("dist").on("change", browserSync.reload)
 });
 
-gulp.task("default", gulp.series(gulp.parallel("watchFiles", "browserSync")));
+gulp.task("default", async () => 
+{
+	if(github)
+	{
+		(gulp.series("movePHPFiles", "minifyJS", "minifyHTML", "minifyCSS")());
+	}
+	else
+	{
+		(gulp.series(gulp.parallel("watchFiles", "browserSync"))());
+	}
+});
+
+//gulp.task("default", gulp.series(gulp.parallel("watchFiles", "browserSync")));
+

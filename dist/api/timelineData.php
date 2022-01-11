@@ -25,7 +25,7 @@ class timelineData
         }
         else 
         {
-            return array(array("errorMessage" => "Error, edu data not found"));
+            return array("errorMessage" => "Error, edu data not found");
         }
     }
     
@@ -44,7 +44,7 @@ class timelineData
         }
         else 
         {
-            return array(array("errorMessage" => "Error, work data not found"));
+            return array("errorMessage" => "Error, work data not found");
         }
     }
     
