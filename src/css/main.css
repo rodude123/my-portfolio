@@ -43,27 +43,27 @@
 
     /****** CV Styles *******/
 
-    section#curriculumvitae .cvGrid {
+    section#curriculumVitae .cvGrid {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    section#curriculumvitae .cvGrid > div {
+    section#curriculumVitae .cvGrid > div {
         width: 100%;
     }
 
-    section#curriculumvitae .cvGrid > div:first-child {
+    section#curriculumVitae .cvGrid > div:first-child {
         padding-bottom: 2.5em;
         margin-bottom: 2.5em;
         border-bottom: 5px #FFFFFF solid;
     }
 
-    section#curriculumvitae .cvGrid h2 {
+    section#curriculumVitae .cvGrid h2 {
         margin-left: 5em;
     }
 
-    section#curriculumvitae .cvGrid .timeline {
+    section#curriculumVitae .cvGrid .timeline {
         margin: 0 auto;
     }
 
@@ -73,7 +73,7 @@
 
     /*** Template Styles ****/
 
-    section#about, section#curriculumvitae h1  {
+    section#about, section#curriculumVitae h1  {
         padding: 0 1em;
     }
 
@@ -250,7 +250,7 @@
 
     /****** CV Styles *******/
 
-    section#curriculumvitae .cvGrid {
+    section#curriculumVitae .cvGrid {
         padding: 0;
     }
 
@@ -340,22 +340,22 @@
 
     /****** CV Styles *******/
 
-    section#curriculumvitae .cvGrid .timeline, section#curriculumvitae .cvGrid .timeline#work {
+    section#curriculumVitae .cvGrid .timeline, section#curriculumVitae .cvGrid .timeline#work {
         margin: 0 auto;
         width: 100%;
     }
 
-    section#curriculumvitae .timeline:before {
+    section#curriculumVitae .timeline:before {
         border: none;
     }
 
-    section#curriculumvitae .timelineItem, section#curriculumvitae .timelineItem:nth-child(2n) {
+    section#curriculumVitae .timelineItem, section#curriculumVitae .timelineItem:nth-child(2n) {
         width: 95%;
         padding: 0;
         margin: 0 auto;
     }
 
-    section#curriculumvitae .timelineItem:before {
+    section#curriculumVitae .timelineItem:before {
         right: unset;
         left: unset;
         border:none
@@ -376,7 +376,7 @@
 
     /*** Template Styles ****/
 
-    section#about, section#curriculumvitae h1 {
+    section#about, section#curriculumVitae h1 {
         padding: 0 1em;
     }
 
