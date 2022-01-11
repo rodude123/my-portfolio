@@ -88,6 +88,6 @@ a.btn:active, form input[type="submit"]:active {
     text-shadow: 0 6px 4px var(--mutedBlack);
 }
 
-section#about, section#curriculumvitae h1 {
+section#about, section#curriculumVitae h1 {
     padding: 0 5rem;
 }
