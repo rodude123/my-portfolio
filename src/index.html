@@ -8,7 +8,6 @@
     <title>Rohit Pai - Portfolio</title>
     <link rel="stylesheet" href="css/main.css">
     <script src="https://kit.fontawesome.com/ed3c25598e.js" crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
 </head>
 <body>
     <header>
@@ -122,28 +121,33 @@
             </div>
             <div id="sayHello">
                 <h1>say hello</h1>
-                <form action="" id="contactForm">
+                <form action="" id="contactForm" method="POST">
                     <div class="flName">
                         <div class="formControl">
                             <label for="fName">First Name</label>
-                            <input type="text" name="fName" id="fName">
+                            <input type="text" name="fName" id="fName" placeholder="John" required>
                         </div>
                         <div class="formControl">
                             <label for="lName">Last Name</label>
-                            <input type="text" name="lName" id="lName">
+                            <input type="text" name="lName" id="lName" placeholder="Doe" required>
                         </div>
                     </div>
                     <div class="formControl">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
+                        <input type="email" id="email" name="email" onchange="(this.value.length !== 0) ? this.classList.add('invalid') : this.classList.remove('invalid');" placeholder="john.doe@example.com" required>
                     </div>
                     <div class="formControl">
                       <label for="subject">Subject</label>
-                      <input type="text" name="subject" id="subject"/>
+                      <input type="text" name="subject" id="subject" placeholder="Something very important..." required/>
                     </div>
                     <div class="formControl">
                         <label for="message">Message</label>
-                        <textarea name="message" id="message" cols="30" rows="10"></textarea></div>
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Heyyy!" required></textarea>
+                    </div>
+                    <div class="message hidden" id="contactError">
+                        <button class="close" type="button">&times;</button>
+                        <div></div>
+                    </div>
                     <input type="submit" class="btn btnPrimary boxShadowIn boxShadowOut" value="Say Hello">
                 </form>
             </div>
@@ -154,5 +158,6 @@
             <button class="goBackToTop"></button>
         </footer>
     </main>
+    <script src="js/main.js"></script>
 </body>
 </html> 

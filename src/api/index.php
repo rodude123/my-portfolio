@@ -102,7 +102,7 @@ $app->post('/contact', function (Request $request, Response $response)
     $headers1 .= "Content-Type: text/html; charset=UTF-8\r\n";
     
     $message1 = "
-    <html>
+    <html lang=\"en\">
     <head>
     <title>{$data['subject']}</title>
     <style>
@@ -163,6 +163,7 @@ $app->post('/contact', function (Request $request, Response $response)
                 <td>{$data['lName']}</td>         
                 <td><a href=\"mailto:{$data['email']}\">{$data['email']}</a></td>
                 <td>{$data['subject']}</td>
+                <td>{$data['message']}</td>
             </tr>
         </table>
         <br>
@@ -181,7 +182,7 @@ $app->post('/contact', function (Request $request, Response $response)
     $headers2 .= "Content-Type: text/html; charset=UTF-8\r\n";
     
     $message2 = "
-    <html>
+    <html lang=\"en\">
     <head>
     <title>{$data['subject']}</title>
     <style>
@@ -226,7 +227,7 @@ $app->post('/contact', function (Request $request, Response $response)
     </style>
     </head>
     <body>
-        <p>{data['fName']} {data['lName']} filled in the form on the website, here is what they sent.</p>
+        <p>{$data['fName']} {$data['lName']} filled in the form on the website, here is what they sent.</p>
         <table>
             <thead>
                 <th>Firstname</th>
@@ -240,6 +241,7 @@ $app->post('/contact', function (Request $request, Response $response)
                 <td>{$data['lName']}</td>         
                 <td><a href=\"mailto:{$data['email']}\">{$data['email']}</a></td>
                 <td>{$data['subject']}</td>
+                <td>{$data['message']}</td>
             </tr>
         </table>
     </body>

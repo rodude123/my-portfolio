@@ -63,7 +63,7 @@ div#sayHello  #contactForm{
 #contactForm .flName {
     display: flex;
     flex-direction: row;
-    gap: 1;
+    gap: 1em;
 }
 
 #contactForm .formControl {
@@ -106,4 +106,106 @@ div#sayHello  #contactForm{
 
 #contactForm .formControl input:not([type="submit"]) {
     height: 3em;
+}
+
+#contactForm .flName {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+#contactForm .formControl {
+    width: 100%;
+}
+
+#contactForm input[type="submit"] {
+    margin-top: 1em;
+    align-self: flex-start;
+}
+
+#contactForm .formControl input:not([type="submit"]), #contactForm .formControl textarea {
+    width: 100%;
+    border: 4px solid var(--primaryDefault);
+    background: none;
+    outline: none;
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    border-radius: 0.5em;
+    padding: 0 0.5em;
+}
+
+#contactForm .formControl textarea {
+    padding: 0.5em;
+}
+
+
+#contactForm .formControl input:not([type="submit"]).invalid:invalid, #contactForm .formControl textarea.invalid:invalid {
+    border: 4px solid var(--errorDefault);
+}
+
+#contactForm .formControl input:not([type="submit"]).invalid:invalid:focus, #contactForm .formControl textarea.invalid:invalid:focus {
+    border: 4px solid var(--errorHover);
+    box-shadow: 0 4px 2px 0 var(--mutedBlack);
+}
+
+#contactForm .formControl input:not([type="submit"]):focus, #contactForm .formControl textarea:focus {
+    border: 4px solid var(--primaryHover);
+}
+
+#contactForm .formControl input:not([type="submit"]) {
+    height: 3em;
+}
+
+div.message {
+    background: var(--primaryDefault);
+    color: #FFFFFF;
+    padding: 0.5em 0.8em;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+    flex-direction: row-reverse;
+    position: relative;
+    height: 75px;
+    visibility: visible;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+    margin-top: 1em;
+}
+
+div.message.error {
+    background: var(--errorDefault);
+}
+
+div.message button {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    margin-top: -5px;
+    position: absolute;
+    transform: translate(0, 0);
+    transform-origin: 0 0;
+    right: 10px;
+    top: 10px;
+}
+
+div.message.hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+}
+
+div.message button:hover {
+    text-shadow: -1px 2px var(--mutedBlack);
 }

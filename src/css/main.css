@@ -18,7 +18,8 @@
     --primaryDefault: hsla(var(--mainHue), var(--mainSat), var(--mainLight), 1);
     --primaryHover: hsla(var(--mainHue), var(--mainSat), calc(var(--mainLight) - 10%), 1);
     --timelineItemBrdr: hsla(var(--mainHue), var(--mainSat), calc(var(--mainLight) - 20%), 1);
-    --errorDefault: hsla(0, var(--mainSat), var(--mainLight), 1);
+    --errorDefault: hsla(0, calc(var(--mainSat) + 10%),calc(var(--mainLight) + 10%), 1);
+    --errorHover: hsla(0, calc(var(--mainSat) + 10%), calc(var(--mainLight) - 10%), 1);
     --grey: hsla(0, 0%, 39%, 1);
     --notAvailableDefault: hsla(0, 0%, 39%, 1);
     --notAvailableHover: hsla(0, 0%,32%, 1);

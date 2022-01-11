@@ -214,6 +214,10 @@ document.addEventListener('DOMContentLoaded', () =>
 	getProjectData();
 });
 
+// contact error message
+document.querySelector("#contactError .close").addEventListener("click", () =>
+	document.querySelector("#contactError").classList.toggle("hidden"));
+
 // contact form
 document.querySelector("#contactForm").addEventListener("submit", e => 
 {
@@ -225,61 +229,29 @@ document.querySelector("#contactForm").addEventListener("submit", e =>
     contactData.append("subject", document.querySelector("#subject").value);
     contactData.append("message", document.querySelector("#message").value);
     
-    if (document.querySelector("#fName").value.length == 0)
-    {
-        document.querySelector("#fName").classList.add("invalid");
-        // please fill out all the fields
-        return;
-    }
-    else
-    {
-        document.querySelector("#fName").classList.remove("invalid");
-    }
+    const fields = ['#fName', '#lName', '#email', '#subject', '#message'];
+    let invalid = false;
 
-    if (document.querySelector("#lName").value.length == 0)
-    {
-        document.querySelector("#lName").classList.add("invalid");
-        // please fill out all the fields
-        return;
-    }
-    else
-    {
-        document.querySelector("#lName").classList.remove("invalid");
-    }
-
-    if (document.querySelector("#email").value.length == 0)
-    {
-        document.querySelector("#email").classList.add("invalid");
-        // please fill out all the fields
-        return;
-    }
-    else
-    {
-        document.querySelector("#email").classList.remove("invalid");
-    }
-
-    if (document.querySelector("#subject").value.length == 0)
-    {
-        document.querySelector("#subject").classList.add("invalid");
-        // please fill out all the fields
-        return;
-    }
-    else
-    {
-        document.querySelector("#subject").classList.remove("invalid");
-    }
-
-    if (document.querySelector("#message").value.length == 0)
-    {
-        document.querySelector("#message").classList.add("invalid");
-        // please fill out all the fields
-        return;
-    }
-    else
-    {
-        document.querySelector("#message").classList.remove("invalid");
-    }
-
+    fields.forEach(field => {
+        const element = document.querySelector(field);
+        if (element.value.length === 0) {
+            element.classList.add("invalid");
+            invalid = true;
+        } else {
+            element.classList.remove("invalid")
+			document.querySelector("#contactError").classList.remove("error");
+		}
+    });
+    
+   if (invalid)
+   {
+       // show error message
+	   document.querySelector("#contactError").classList.add("error");
+	   document.querySelector("#contactError").classList.remove("hidden");
+	   document.querySelector("#contactError div").innerText = "Please fill out all fields.";
+       return;
+   }
+    
     fetch("/api/contact", 
     {
        method: "POST",
@@ -288,8 +260,8 @@ document.querySelector("#contactForm").addEventListener("submit", e =>
     {
         if(res.ok)
         {
-            // show message box
-        }
+			document.querySelector("#contactError").classList.remove("hidden");
+			document.querySelector("#contactError div").innerText = "Thanks for contacting me, I will get back to you as soon as possible.";
+		}
     });
-    
 });
