@@ -1,4 +1,5 @@
 <?php
+session_start();
 ////////////////// Index file //////////////
 /// Creates base routes and runs         ///
 /// respective functions                 ///
