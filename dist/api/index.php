@@ -1,4 +1,5 @@
 <?php
+session_start();
 ////////////////// Index file //////////////
 /// Creates base routes and runs         ///
 /// respective functions                 ///
@@ -11,12 +12,19 @@ use api\projectData;
 use api\timelineData;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Selective\SameSiteCookie\SameSiteCookieConfiguration;
 use Slim\Factory\AppFactory;
+use Selective\SameSiteCookie\SameSiteCookieMiddleware;
 
 // Start slim
 $app = AppFactory::create();
 // create middleware
 $app->addRoutingMiddleware();
+
+$ssConfig = new SameSiteCookieConfiguration(["same_site" => "strict"]);
+
+// add in same site cookie stuff
+$app->add(new SameSiteCookieMiddleware($ssConfig));
 
 // for error checking
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
@@ -102,7 +110,7 @@ $app->post('/contact', function (Request $request, Response $response)
     $headers1 .= "Content-Type: text/html; charset=UTF-8\r\n";
     
     $message1 = "
-    <html>
+    <html lang=\"en\">
     <head>
     <title>{$data['subject']}</title>
     <style>
@@ -182,7 +190,7 @@ $app->post('/contact', function (Request $request, Response $response)
     $headers2 .= "Content-Type: text/html; charset=UTF-8\r\n";
     
     $message2 = "
-    <html>
+    <html lang=\"en\">
     <head>
     <title>{$data['subject']}</title>
     <style>

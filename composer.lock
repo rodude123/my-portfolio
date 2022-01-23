@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a465680bb855c70632877658a85d7b5",
+    "content-hash": "5aafeb561d1b79ead81458f3e265c0c1",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -1377,6 +1377,59 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
+            "name": "selective/samesite-cookie",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/selective-php/samesite-cookie.git",
+                "reference": "805d82de34cb642189932feb17158da98078f9a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/selective-php/samesite-cookie/zipball/805d82de34cb642189932feb17158da98078f9a6",
+                "reference": "805d82de34cb642189932feb17158da98078f9a6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0",
+                "psr/http-message": "^1",
+                "psr/http-server-handler": "^1",
+                "psr/http-server-middleware": "^1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2",
+                "middlewares/utils": "^3",
+                "overtrue/phplint": "^2",
+                "phpstan/phpstan": "0.*",
+                "phpunit/phpunit": "^8 || ^9",
+                "slim/psr7": "^1",
+                "squizlabs/php_codesniffer": "^3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Selective\\SameSiteCookie\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Secure your site with SameSite cookies",
+            "homepage": "https://github.com/selective-php/samesite-cookie",
+            "keywords": [
+                "cookie",
+                "csrf",
+                "samesite",
+                "samesite-cookie"
+            ],
+            "support": {
+                "issues": "https://github.com/selective-php/samesite-cookie/issues",
+                "source": "https://github.com/selective-php/samesite-cookie/tree/0.3.0"
+            },
+            "time": "2021-01-11T07:49:32+00:00"
+        },
+        {
             "name": "slim/psr7",
             "version": "1.4",
             "source": {
@@ -1729,5 +1782,5 @@
         "ext-pdo": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
