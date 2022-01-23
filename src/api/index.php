@@ -12,11 +12,15 @@ use api\timelineData;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
+use Selective\SameSiteCookie\SameSiteCookieMiddleware;
 
 // Start slim
 $app = AppFactory::create();
 // create middleware
 $app->addRoutingMiddleware();
+
+// add in same site cookie stuff
+$app->add(new SameSiteCookieMiddleware());
 
 // for error checking
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);

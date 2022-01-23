@@ -8,6 +8,7 @@
         "guzzlehttp/psr7": "^2.0",
         "http-interop/http-factory-guzzle": "^1.2",
         "laminas/laminas-diactoros": "^2.6",
-        "laminas/laminas-httphandlerrunner": "^2.0"
+        "laminas/laminas-httphandlerrunner": "^2.0",
+        "selective/samesite-cookie": "^0.3.0"
     }
 }
