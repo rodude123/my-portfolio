@@ -218,6 +218,11 @@ document.addEventListener('DOMContentLoaded', () =>
 document.querySelector("#contactError .close").addEventListener("click", () =>
 	document.querySelector("#contactError").classList.toggle("hidden"));
 
+document.querySelector("#goBackToTop").addEventListener("click", () =>
+{
+	window.scrollTo(0, 0);
+});
+
 // contact form
 document.querySelector("#contactForm").addEventListener("submit", e => 
 {
