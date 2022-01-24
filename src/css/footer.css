@@ -1,0 +1,37 @@
+footer {
+    background-color: var(--primaryDefault);
+    margin-top: 5em;
+    padding: 2em;
+    display: flex;
+    color: #FFFFFF;
+}
+
+footer .spacer {
+    width: 100%;
+    margin-right: auto;
+}
+
+footer p {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+footer .button {
+    margin-left: auto;
+    width: 100%;
+    text-align: center;
+}
+
+footer .button button {
+    border: 5px solid #FFFFFF;
+    background: none;
+    font-size: 3em;
+    padding: 0.5rem 1rem;
+    width: 2em;
+    color: #FFFFFF;
+    -webkit-border-radius: 0.25em;
+    -moz-border-radius: 0.25em;
+    border-radius: 0.25em;
+    cursor: pointer;
+}
