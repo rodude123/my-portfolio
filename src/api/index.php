@@ -104,8 +104,8 @@ $app->post('/contact', function (Request $request, Response $response)
     }
     
     // email form filler/conatcter
-    $headers1 = "From: noreply@rohitpai.tech\r\n";
-    $headers1 .= "Reply-To: rohit@rohitpai.tech\r\n";
+    $headers1 = "From: noreply@rohitpai.co.uk\r\n";
+    $headers1 .= "Reply-To: rohit@rohitpai.co.uk\r\n";
     $headers1 .= "MIME-Version: 1.0\r\n";
     $headers1 .= "Content-Type: text/html; charset=UTF-8\r\n";
     
@@ -176,7 +176,7 @@ $app->post('/contact', function (Request $request, Response $response)
         </table>
         <br>
         <hr>
-        <p>Regards, <br> Rohit Pai <br> <a href=\"mailto:rohit@rohitpai.tech\">rohit@rohitpai.tech</a>
+        <p>Regards, <br> Rohit Pai <br> <a href=\"mailto:rohit@rohitpai.co.uk\">rohit@rohitpai.co.uk</a>
     </body>
     </html>
     ";
@@ -184,7 +184,7 @@ $app->post('/contact', function (Request $request, Response $response)
     mail($data["email"], $data["subject"], $message1, $headers1);
     
     // email to me
-    $headers2 = "From: noreply@rohitpai.tech\r\n";
+    $headers2 = "From: noreply@rohitpai.co.uk\r\n";
     $headers2 .= "Reply-To: {$data['email']}\r\n";
     $headers2 .= "MIME-Version: 1.0\r\n";
     $headers2 .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -256,7 +256,7 @@ $app->post('/contact', function (Request $request, Response $response)
     </html>
     ";
     
-    mail("rohit@rohitpai.tech", "{$data['fName']} {$data['lName']} filled in the form", $message2, $headers2);
+    mail("rohit@rohitpai.co.uk", "{$data['fName']} {$data['lName']} filled in the form", $message2, $headers2);
     return $response->withStatus(201);
 });
 

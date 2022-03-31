@@ -75,3 +75,5 @@ fabric.properties
 .env
 vendor/*
 node_modules/*
+src/api/config.php
+dist/api/config.php

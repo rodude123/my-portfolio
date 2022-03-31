@@ -58,7 +58,7 @@ gulp.task("browserSync", () =>
 		// server: {
 		// 	baseDir: "dist"
 		// },
-		proxy: "https://rohitpai.tech/",
+		proxy: "https://rohitpai.co.uk/",
 		serveStatic: ["./dist"]
 
 	});
